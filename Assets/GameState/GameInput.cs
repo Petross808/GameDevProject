@@ -3,55 +3,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 [RequireComponent(typeof(PlayerInput))]
 public class GameInput : MonoBehaviour
 {
     private IController _controller;
+    private PlayerInput _playerInput;
+
+    public IController Controller { get => _controller; set => _controller = value; }
 
     void Awake()
     {
-        PlayerInput input = GetComponent<PlayerInput>();
-        input.actions["WASD"].performed += DirStart;
-        input.actions["WASD"].canceled += DirStop;
-        input.actions["Space"].performed += SpacePressed;
-        input.actions["MouseAim"].performed += AimChanged;
-        input.actions["LMB"].performed += LMBPressed;
-        input.actions["RMB"].performed += RMBPressed;
-    }
-
-    private void Start()
-    {
-        _controller = GetComponent<GameState>().CurrentController;
+        _playerInput = GetComponent<PlayerInput>();
+        _playerInput.actions["WASD"].performed += DirStart;
+        _playerInput.actions["WASD"].canceled += DirStop;
+        _playerInput.actions["Space"].performed += SpacePressed;
+        _playerInput.actions["MouseAim"].performed += AimChanged;
+        _playerInput.actions["LMB"].performed += LMBPressed;
+        _playerInput.actions["RMB"].performed += RMBPressed;
     }
 
     private void DirStart(InputAction.CallbackContext context)
     {
-        _controller.DirStart(context);
+        _controller?.DirStart(context);
     }
 
     private void DirStop(InputAction.CallbackContext context)
     {
-        _controller.DirStop(context);
+        _controller?.DirStop(context);
     }
 
     private void SpacePressed(InputAction.CallbackContext context)
     {
-        _controller.SpacePressed(context);
+        _controller?.SpacePressed(context);
     }
 
     private void AimChanged(InputAction.CallbackContext context)
     {
-        _controller.AimChanged(context);
+        _controller?.AimChanged(context);
     }
 
     private void LMBPressed(InputAction.CallbackContext context)
     {
-        _controller.LMBPressed(context);
+        _controller?.LMBPressed(context);
     }
 
     private void RMBPressed(InputAction.CallbackContext context)
     {
-        _controller.RMBPressed(context);
+        _controller?.RMBPressed(context);
+    }
+
+    private void OnDestroy()
+    {
+        _playerInput.actions["WASD"].performed -= DirStart;
+        _playerInput.actions["WASD"].canceled -= DirStop;
+        _playerInput.actions["Space"].performed -= SpacePressed;
+        _playerInput.actions["MouseAim"].performed -= AimChanged;
+        _playerInput.actions["LMB"].performed -= LMBPressed;
+        _playerInput.actions["RMB"].performed -= RMBPressed;
     }
 }

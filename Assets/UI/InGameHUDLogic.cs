@@ -25,4 +25,9 @@ public class InGameHUDLogic : MonoBehaviour
             _healthBar.value = Mathf.Max(Mathf.Min(((float)health / hitdata.DamageReceiver.MaxHealth) * 100, 100), 0);
         }
     }
+
+    private void OnDestroy()
+    {
+        EntityHealth.OnAnyEntityHit -= UpdateHealthbar;
+    }
 }

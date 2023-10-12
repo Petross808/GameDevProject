@@ -4,24 +4,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
+[RequireComponent(typeof(GameInput))]
 public class GameState : MonoBehaviour
 {
     [SerializeField]
     private Transform _playerTemplate;
 
     private Transform _player;
-    private IController _currentController;
-
-    public Transform Player { get => _player; }
-    public IController CurrentController { get => _currentController; }
+    private IController _playerController;
+    private GameInput _gameInput;
 
     void Awake()
     {
+        _gameInput = GetComponent<GameInput>();
+
         EntityHealth.OnAnyEntityDeath += GameOver;
 
         SpawnPlayer();
         SetCameraFollowPlayer();
-        _currentController = _player.GetComponent<PlayerController>();
+    }
+
+    private void Start()
+    {
+        _playerController = _player.GetComponent<PlayerController>();
+        ChangeController(_playerController);
     }
 
     private void SpawnPlayer()
@@ -49,12 +55,25 @@ public class GameState : MonoBehaviour
         camConstraint.constraintActive = true;
     }
 
+    private void ChangeController(IController controller)
+    {
+        if(controller != null)
+        {
+            _gameInput.Controller = controller;
+        }
+    }
+
     public void GameOver(object sender, HitData data)
     {
         if(data.DamageReceiver.transform.root.CompareTag("Crystal"))
         {
             Debug.Log("GameOver");
         }
+    }
+
+    private void OnDestroy()
+    {
+        EntityHealth.OnAnyEntityDeath -= GameOver;
     }
 
 }

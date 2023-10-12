@@ -28,4 +28,12 @@ public class HealthbarScript : MonoBehaviour
         _fill.transform.localScale = new(((float)_entityHealth.Health-data.DamageDealt)/_entityHealth.MaxHealth, _fill.transform.localScale.y, _fill.transform.localScale.z);
         _fill.transform.localPosition = new(-0.5f * (1- (((float)_entityHealth.Health - data.DamageDealt) / _entityHealth.MaxHealth)), _fill.transform.localPosition.y, _fill.transform.localPosition.z);
     }
+
+    private void OnDestroy()
+    {
+        if (_entityHealth != null)
+        {
+            _entityHealth.OnEntityHit -= UpdateHealthBar;
+        }
+    }
 }

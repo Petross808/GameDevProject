@@ -24,4 +24,9 @@ public class EM_XpOnKill : MonoBehaviour
             Debug.Log("XP");
         }
     }
+
+    private void OnDestroy()
+    {
+        EntityHealth.OnAnyEntityDeath -= AddExperience;
+    }
 }
