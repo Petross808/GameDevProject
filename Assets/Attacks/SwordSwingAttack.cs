@@ -20,9 +20,7 @@ public class SwordSwingAttack : MonoBehaviour, IAttack
     private float _activeTimer;
     private float _cdTimer;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _activeTimer = _attackTime;
         _cdTimer = _cooldown;

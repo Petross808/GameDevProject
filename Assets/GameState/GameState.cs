@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
-[RequireComponent(typeof(PlayerController))]
 public class GameState : MonoBehaviour
 {
     [SerializeField]
