@@ -21,7 +21,8 @@ public class EntityHealth : MonoBehaviour
     public virtual void ReceiveDamage(int amount, Hitbox source)
     {
         HitData hitData = new HitData(amount, source, this);
-        RaiseOnEntityHit(hitData);
+        this.RaiseEvent<HitData>(OnEntityHit, hitData);
+        this.RaiseEvent<HitData>(OnAnyEntityHit, hitData);
         _health -= hitData.DamageDealt;
         if (_health <= 0 )
         {
@@ -29,42 +30,27 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
+    public virtual void Heal(int amount)
+    {
+        this.RaiseEvent<int>(OnEntityHeal, amount);
+        this.RaiseEvent<int>(OnAnyEntityHeal, amount);
+        _health = (_health + amount) > _maxHealth ? _maxHealth : _health + amount;
+    }
+
     public virtual void Die(HitData lastHit)
     {
-        RaiseOnEntityDeath(lastHit);
+        this.RaiseEvent<HitData>(OnEntityDeath, lastHit);
+        this.RaiseEvent<HitData>(OnAnyEntityDeath, lastHit);
         Destroy(this.gameObject);
     }
 
     public event EventHandler<HitData> OnEntityHit;
     public static event EventHandler<HitData> OnAnyEntityHit;
-    protected virtual void RaiseOnEntityHit(HitData data)
-    {
-        EventHandler<HitData> handler = OnEntityHit;
-        if(handler != null )
-        {
-            handler(this, data);
-        }
-        handler = OnAnyEntityHit;
-        if (handler != null)
-        {
-            handler(this, data);
-        }
-
-    }
 
     public event EventHandler<HitData> OnEntityDeath;
     public static event EventHandler<HitData> OnAnyEntityDeath;
-    protected virtual void RaiseOnEntityDeath(HitData data)
-    {
-        EventHandler<HitData> handler = OnEntityDeath;
-        if (handler != null)
-        {
-            handler(this, data);
-        }
-        handler = OnAnyEntityDeath;
-        if (handler != null)
-        {
-            handler(this, data);
-        }
-    }
+
+    public event EventHandler<int> OnEntityHeal;
+    public static event EventHandler<int> OnAnyEntityHeal;
+
 }

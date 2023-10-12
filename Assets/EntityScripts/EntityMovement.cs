@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -27,33 +28,16 @@ public class EntityMovement : MonoBehaviour
 
     public void MoveStart(Vector2 direction)
     {
-        RaiseOnEntityMove(direction);
+        this.RaiseEvent<Vector2>(OnEntityMove, direction);
         _moveVector = direction;
     }
 
     public void MoveEnd()
     {
-        RaiseOnEntityStop();
+        this.RaiseEvent(OnEntityStop);
         _moveVector = new(0, 0);
     }
 
     public event EventHandler<Vector2> OnEntityMove;
-    protected virtual void RaiseOnEntityMove(Vector2 direction)
-    {
-        EventHandler<Vector2> handler = OnEntityMove;
-        if (handler != null)
-        {
-            handler(this, direction);
-        }
-    }
-
     public event EventHandler OnEntityStop;
-    protected virtual void RaiseOnEntityStop()
-    {
-        EventHandler handler = OnEntityStop;
-        if (handler != null)
-        {
-            handler(this,null);
-        }
-    }
 }
