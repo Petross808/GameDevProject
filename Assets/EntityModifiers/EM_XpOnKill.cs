@@ -4,18 +4,16 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+[RequireComponent(typeof(EntityLeveling))]
 public class EM_XpOnKill : MonoBehaviour
 {
     private EntityLeveling _leveling;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _leveling = GetComponent<EntityLeveling>();
-        if( _leveling != null)
-        {
-            EntityHealth.OnAnyEntityDeath += AddExperience;
-        }
+        EntityHealth.OnAnyEntityDeath += AddExperience;
     }
 
     private void AddExperience(object sender, HitData e)

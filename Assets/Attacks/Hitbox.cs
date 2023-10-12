@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(IAttack))]
 public class Hitbox : MonoBehaviour
 {
     private IAttack _attack;
 
-    private void Start()
+    private void Awake()
     {
         _attack = GetComponent<IAttack>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("test");
         if((1 << collision.gameObject.layer | _attack.HitMask) == _attack.HitMask)
         {
             EntityHealth entityHealth = collision.GetComponent<EntityHealth>();

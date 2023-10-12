@@ -4,16 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
+[RequireComponent(typeof(PlayerController))]
 public class GameState : MonoBehaviour
 {
-    public Transform _playerTemplate;
+    [SerializeField]
+    private Transform _playerTemplate;
+
     private Transform _player;
     private IController _currentController;
+
     public Transform Player { get => _player; }
     public IController CurrentController { get => _currentController; }
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         EntityHealth.OnAnyEntityDeath += GameOver;

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(UIDocument))]
 public class InGameHUDLogic : MonoBehaviour
 {
     private UIDocument _document;
     private ProgressBar _healthBar;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _document = GetComponent<UIDocument>();
         _healthBar = _document.rootVisualElement.Q("CrystalHealth") as ProgressBar;

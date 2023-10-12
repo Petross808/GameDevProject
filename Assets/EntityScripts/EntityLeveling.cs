@@ -6,26 +6,25 @@ using UnityEngine;
 
 public class EntityLeveling : MonoBehaviour
 {
+    [SerializeField]
+    private int _xpToLvlUp;
+    [SerializeField]
+    private float _xpRequirementMultiplier;
+    [SerializeField]
+    private int _maxXpRequirement;
+
     private int _experience;
     private int _level;
-    private int _xpToLvlUp;
-    private float _xpRequirementMultiplier;
-    private int _maxXpRequirement;
 
     public int Experience { get => _experience; }
     public int Level { get => _level; }
     public int XpToLvlUp { get => _xpToLvlUp; }
     public float XpRequirementMultiplier { get => _xpRequirementMultiplier; }
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _experience = 0;
         _level = 1;
-        _xpToLvlUp = 1000;
-        _xpRequirementMultiplier = 1.2f;
-        _maxXpRequirement = 26000;
     }
 
     public void GainExperience(int amount)
@@ -35,10 +34,7 @@ public class EntityLeveling : MonoBehaviour
         _experience += xpData.XpAmount;
 
 
-        if(_experience >= _xpToLvlUp)
-        {
-            LevelUp();
-        }
+        CheckForLevelUp();
     }
 
     public void LevelUp()
@@ -46,7 +42,15 @@ public class EntityLeveling : MonoBehaviour
         _level++;
         _xpToLvlUp = Math.Min(Mathf.FloorToInt((_xpToLvlUp * _xpRequirementMultiplier) / 100) * 100, _maxXpRequirement);
         RaiseOnEntityLevelUp(_level);
+        CheckForLevelUp();
+    }
 
+    private void CheckForLevelUp()
+    {
+        if (_experience >= _xpToLvlUp)
+        {
+            LevelUp();
+        }
     }
 
     public event EventHandler<XPData> OnEntityGainXP;

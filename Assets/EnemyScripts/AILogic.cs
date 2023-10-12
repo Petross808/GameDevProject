@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
+[RequireComponent(typeof(EntityMovement))]
+[RequireComponent(typeof(EntityCombat))]
 public class AILogic : MonoBehaviour
 {
-    public float _range;
-    public Transform _aim;
+    [SerializeField]
+    private float _range;
+    [SerializeField]
+    private Transform _aim;
 
     private EntityMovement _movement;
     private EntityCombat _attackManager;
     private GameObject _crystal;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _movement = GetComponent<EntityMovement>();
         _attackManager = GetComponent<EntityCombat>();
-        _crystal = GameObject.FindGameObjectWithTag("Crystal");      
+        _crystal = GameObject.FindGameObjectWithTag("Crystal");
     }
 
     // Update is called once per frame

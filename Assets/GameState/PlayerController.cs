@@ -5,21 +5,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(EntityMovement))]
+[RequireComponent(typeof(EntityCombat))]
 public class PlayerController : MonoBehaviour, IController
 {
-    public Transform _aim;
+    [SerializeField]
+    private Transform _aim;
+
     private EntityCombat _attackManager;
     private EntityMovement _movement;
     private Vector2 _mousePosition;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _attackManager = GetComponent<EntityCombat>();
         _movement = GetComponent<EntityMovement>();
     }
-
 
     public void DirStart(InputAction.CallbackContext context)
     {

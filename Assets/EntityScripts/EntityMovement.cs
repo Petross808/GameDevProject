@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EntityMovement : MonoBehaviour
 {
-    public float _speed;
+    [SerializeField]
+    private float _speed;
 
     private Rigidbody2D _rb;
     private Vector2 _moveVector;
 
     public float Speed { get => _speed; set => _speed = value; }
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _moveVector = new(0,0);

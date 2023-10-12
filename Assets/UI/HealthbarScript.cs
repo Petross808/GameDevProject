@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class HealthbarScript : MonoBehaviour
 {
+    [SerializeField]
     private Transform _fill;
+
     private EntityHealth _entityHealth;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
-        _fill = transform.GetChild(0); 
         _entityHealth = GetComponentInParent<EntityHealth>();
         if( _entityHealth != null )
         {

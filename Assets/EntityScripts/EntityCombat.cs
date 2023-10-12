@@ -6,14 +6,17 @@ using UnityEngine;
 
 public class EntityCombat : MonoBehaviour
 {
-    public Transform _baseAttackTemplate;
-    public Transform _aim;
+    [SerializeField]
+    private Transform _baseAttackTemplate;
+    [SerializeField]
+    private Transform _aim;
+
     private IAttack _primaryAttack;
     private IAttack _secondaryAttack;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         RegisterAttack(ref _primaryAttack, _baseAttackTemplate);
         RegisterAttack(ref _secondaryAttack, _baseAttackTemplate);

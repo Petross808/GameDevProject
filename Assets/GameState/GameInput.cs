@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class GameInput : MonoBehaviour
 {
     private IController _controller;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        _controller = GetComponent<GameState>().CurrentController;
-
         PlayerInput input = GetComponent<PlayerInput>();
         input.actions["WASD"].performed += DirStart;
         input.actions["WASD"].canceled += DirStop;
@@ -20,6 +18,11 @@ public class GameInput : MonoBehaviour
         input.actions["MouseAim"].performed += AimChanged;
         input.actions["LMB"].performed += LMBPressed;
         input.actions["RMB"].performed += RMBPressed;
+    }
+
+    private void Start()
+    {
+        _controller = GetComponent<GameState>().CurrentController;
     }
 
     private void DirStart(InputAction.CallbackContext context)

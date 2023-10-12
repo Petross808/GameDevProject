@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SwordSwingAttack : MonoBehaviour, IAttack
 {
-    public int _damage = 50;
-    public float _cooldown = 30 / 60f;
-    public LayerMask _hitMask = 0;
+    [SerializeField]
+    private int _damage = 50;
+    [SerializeField]
+    private float _cooldown = 30 / 60f;
+    [SerializeField]
+    private float _attackTime = 5 / 60f;
+    [SerializeField]
+    private LayerMask _hitMask = 0;
 
     public int Damage { get => _damage; set => _damage = value; }
     public float Cooldown { get => _cooldown; set => _cooldown = value; }
     public LayerMask HitMask { get => _hitMask; }
 
-    private float _attackTime;
     private float _activeTimer;
     private float _cdTimer;
 
@@ -20,7 +24,6 @@ public class SwordSwingAttack : MonoBehaviour, IAttack
     // Start is called before the first frame update
     void Start()
     {
-        _attackTime = 5 / 60f;
         _activeTimer = _attackTime;
         _cdTimer = _cooldown;
     }
