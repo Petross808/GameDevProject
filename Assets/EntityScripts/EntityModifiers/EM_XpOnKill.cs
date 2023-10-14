@@ -5,11 +5,12 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(EntityLeveling))]
-public class EM_XpOnKill : MonoBehaviour
+public class EM_XpOnKill : MonoBehaviour, IEntityModifier
 {
     private EntityLeveling _leveling;
 
-    // Start is called before the first frame update
+    public int Amount => 1;
+
     void Awake()
     {
         _leveling = GetComponent<EntityLeveling>();
@@ -28,5 +29,10 @@ public class EM_XpOnKill : MonoBehaviour
     private void OnDestroy()
     {
         EntityHealth.OnAnyEntityDeath -= AddExperience;
+    }
+
+    public void AddAnother()
+    {
+        // pass
     }
 }

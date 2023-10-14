@@ -7,11 +7,16 @@ using UnityEngine;
 public class EntityLeveling : MonoBehaviour
 {
     [SerializeField]
-    private int _xpToLvlUp;
+    [Min(1)]
+    private int _xpToLvlUp = 1;
+
     [SerializeField]
-    private float _xpRequirementMultiplier;
+    [Min(0)]
+    private float _xpRequirementMultiplier = 0;
+
     [SerializeField]
-    private int _maxXpRequirement;
+    [Min(1)]
+    private int _maxXpRequirement = 1;
 
     private int _experience;
     private int _level;
@@ -40,6 +45,7 @@ public class EntityLeveling : MonoBehaviour
     public void LevelUp()
     {
         _level++;
+        _experience -= _xpToLvlUp;
         _xpToLvlUp = Math.Min(Mathf.FloorToInt((_xpToLvlUp * _xpRequirementMultiplier) / 100) * 100, _maxXpRequirement);
         this.RaiseEvent<int>(OnEntityLevelUp, _level);
         CheckForLevelUp();

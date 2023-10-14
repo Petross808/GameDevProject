@@ -1,9 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UpgradeMenuStylesheet.uss?fileID=7433441132597879392&amp;guid=e94f5cf5ee3efb545a5bf0624ad4b44d&amp;type=3#UpgradeMenuStylesheet" />
+    <ui:VisualElement name="Background">
+        <ui:Label tabindex="-1" text="Level Up" display-tooltip-when-elided="true" name="UpgradeMenuTitle" />
+        <ui:VisualElement name="UpgradeInnerFlex">
+            <ui:VisualElement name="UpgradeOption1" class="UpgradeOption">
+                <ui:VisualElement name="Option1Sprite" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Option1Name" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UpgradeOption2" class="UpgradeOption">
+                <ui:VisualElement name="Option2Sprite" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Option2Name" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+            <ui:VisualElement name="UpgradeOption3" class="UpgradeOption">
+                <ui:VisualElement name="Option3Sprite" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="Option3Name" />
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="Pick Upgrade" display-tooltip-when-elided="true" name="Confirm" />
+    </ui:VisualElement>
+</ui:UXML>

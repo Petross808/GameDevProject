@@ -57,7 +57,7 @@ public class AILogic : MonoBehaviour
     void AttackCrystal()
     {
         _movement.MoveEnd();
-        _aim.transform.up = _crystal.transform.position - transform.position;
+        _aim.transform.up = (Vector2)_crystal.transform.position - (Vector2)transform.position;
         _attackManager.PrimaryAttack();
     }
 }
