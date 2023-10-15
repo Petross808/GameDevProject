@@ -12,52 +12,48 @@ public class AILogic : MonoBehaviour
     private float _range;
     [SerializeField]
     private Transform _aim;
+    [SerializeField]
+    private GameObject _target;
 
     private EntityMovement _movement;
     private EntityCombat _attackManager;
-    private GameObject _crystal;
+
+    public GameObject Target { get => _target; set => _target = value; }
 
     private void Awake()
     {
         _movement = GetComponent<EntityMovement>();
         _attackManager = GetComponent<EntityCombat>();
-        _crystal = GameObject.FindGameObjectWithTag("Crystal");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_crystal == null)
+        if(_target == null)
         {
             _movement.MoveEnd();
             return;
         }
 
-        if (Vector2.Distance(transform.position, _crystal.transform.position) < _range)
+        if (Vector2.Distance(transform.position, _target.transform.position) < _range)
         {
-            AttackCrystal();
+            AttackTarget();
         }
         else
         {
-            MoveTowardsCrystal();
+            MoveTowardsTarget();
         }
     }
 
-    /*
-    void MoveTowardsCrystal()
+    void MoveTowardsTarget()
     {
-        _movement.MoveStart(new(Math.Sign(_crystal.transform.position.x - transform.position.x), 0));
-    }*/
-
-    void MoveTowardsCrystal()
-    {
-        _movement.MoveStart(Vector3.Normalize(_crystal.transform.position - transform.position));
+        _movement.MoveStart(Vector3.Normalize(_target.transform.position - transform.position));
     }
 
-    void AttackCrystal()
+    void AttackTarget()
     {
         _movement.MoveEnd();
-        _aim.transform.up = (Vector2)_crystal.transform.position - (Vector2)transform.position;
+        _aim.transform.up = (Vector2)_target.transform.position - (Vector2)transform.position;
         _attackManager.PrimaryAttack();
     }
 }

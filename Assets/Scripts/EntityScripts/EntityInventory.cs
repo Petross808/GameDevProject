@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,18 +7,23 @@ using UnityEngine;
 public class EntityInventory : MonoBehaviour
 {
     [SerializeField]
-    private List<ItemScriptableObject> _itemList;
+    private List<ItemSO> _itemList;
+
+    public List<ItemSO> ItemList { get => _itemList; }
 
     void Start()
     {
-        foreach(ItemScriptableObject item in _itemList)
+        foreach(ItemSO item in _itemList)
         {
             AddItem(item);
         }
     }
 
-    public void AddItem(ItemScriptableObject item)
+    public void AddItem(ItemSO item)
     {
+        this.RaiseEvent<ItemSO>(OnEntityGainItem, item);
+        this.RaiseEvent<ItemSO>(OnAnyEntityGainItem, item);
+
         System.Type entityModType = item.EntityModifier.GetClass();
 
         if(gameObject.TryGetComponent(entityModType, out Component component))
@@ -32,4 +38,8 @@ public class EntityInventory : MonoBehaviour
             gameObject.AddComponent(entityModType);
         }
     }
+
+    public event EventHandler<ItemSO> OnEntityGainItem;
+    public static event EventHandler<ItemSO> OnAnyEntityGainItem;
+
 }

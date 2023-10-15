@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     private float _unitSpawnTime;
     [SerializeField]
     private float _spawnTimeVariance;
+    [SerializeField]
+    private GameObject _enemyTarget;
 
     private float _unitTimer;
 
@@ -23,7 +25,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnUnit()
     {
         Vector2 randPos = UnityEngine.Random.insideUnitCircle.normalized * 30;
-        Instantiate(_enemyTemplate, new Vector3(randPos.x, randPos.y, 1) ,new Quaternion(0,0,0,0));
+        Transform unit = Instantiate(_enemyTemplate, new Vector3(randPos.x, randPos.y, 1) ,new Quaternion(0,0,0,0));
+        unit.GetComponent<AILogic>().Target = _enemyTarget;
     }
 
     // Update is called once per frame

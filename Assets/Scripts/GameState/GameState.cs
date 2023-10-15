@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -18,10 +19,22 @@ public class GameState : MonoBehaviour
     {
         _gameInput = GetComponent<GameInput>();
 
+        EntityLeveling.OnAnyEntityLevelUp += PauseGame;
+        EntityInventory.OnAnyEntityGainItem += ResumeGame;
         EntityHealth.OnAnyEntityDeath += GameOver;
 
         SpawnPlayer();
         SetCameraFollowPlayer();
+    }
+
+    private void PauseGame(object sender, int e)
+    {
+        Time.timeScale = 0;
+    }
+
+    private void ResumeGame(object sender, ItemSO e)
+    {
+        Time.timeScale = 1f;
     }
 
     private void Start()
@@ -74,6 +87,8 @@ public class GameState : MonoBehaviour
     private void OnDestroy()
     {
         EntityHealth.OnAnyEntityDeath -= GameOver;
+        EntityLeveling.OnAnyEntityLevelUp -= PauseGame;
+        EntityInventory.OnAnyEntityGainItem -= ResumeGame;
     }
 
 }

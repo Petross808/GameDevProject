@@ -4,13 +4,19 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/ItemScriptableObject")]
-public class ItemScriptableObject : ScriptableObject
+public class ItemSO : ScriptableObject
 {
     [SerializeField]
-    private int _id;
+    private string _itemName;
+
+    [SerializeField]
+    [TextArea]
+    private string _itemDescription;
+
     [SerializeField]
     private MonoScript _entityModifier;
 
-    public int Id { get => _id; }
     public MonoScript EntityModifier { get => _entityModifier; }
+    public string ItemName { get => _itemName; }
+    public string ItemDescription { get => _itemDescription; }
 }
