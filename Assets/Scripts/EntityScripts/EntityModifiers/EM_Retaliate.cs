@@ -8,7 +8,7 @@ public class EM_Retaliate : MonoBehaviour, IEntityModifier
     private int _amount = 1;
     public int Amount => _amount;
 
-    private float _percentageRetaliated = 0.2f;
+    private float _percentageRetaliated = 0.25f;
 
     public void AddAnother()
     {

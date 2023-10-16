@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7726128730616641113}
   - component: {fileID: 2824802406984158696}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: TankEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c38b4a1f41b31649bc2ccecdf615ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 500
 --- !u!114 &7726128730616641113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a654387d059395d41a5c28e09f952f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 2
 --- !u!114 &2824802406984158696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3150b57e35743ae4ab2572bb3d28ca60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseAttackTemplate: {fileID: 1436025442024765104, guid: f6d79c793fe6a604585bac54ab1e7df5, type: 3}
+  _baseAttackTemplate: {fileID: 1436025442024765104, guid: b136f42aeda2dc84eb431be917196fe9, type: 3}
   _aim: {fileID: 5457131133419339931}
   _attackHitMask:
     serializedVersion: 2

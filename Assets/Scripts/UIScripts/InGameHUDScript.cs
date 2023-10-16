@@ -42,12 +42,13 @@ public class InGameHUDLogic : MonoBehaviour
         _timer.text = String.Format("{0:D2}:{1:D2}", (e / 60), (e % 60));
     }
 
-    public void UpdateHealthbarOnHit(object source, HitData hitdata)
+    public void UpdateHealthbarOnHit(object source, object args)
     {
-        if (hitdata.DamageReceiver.transform.root.CompareTag("Crystal"))
+        if (source is EntityHealth eh &&
+            eh.transform.root.CompareTag("Crystal"))
         {
-            int health = hitdata.DamageReceiver.Health;
-            _healthBar.value = Mathf.Max(Mathf.Min(((float)health / hitdata.DamageReceiver.MaxHealth) * 100, 100), 0);
+            int health = eh.Health;
+            _healthBar.value = Mathf.Max(Mathf.Min(((float)health / eh.MaxHealth) * 100, 100), 0);
         }
     }
     public void UpdateHealthbarOnHeal(object source, int amount)

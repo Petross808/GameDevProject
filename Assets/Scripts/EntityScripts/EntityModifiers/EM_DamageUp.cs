@@ -20,7 +20,7 @@ public class EM_DamageUp : MonoBehaviour, IEntityModifier
 
     private void AddDamageMultiplier(object sender, HitData e)
     {
-        if(e.DamageSource.transform.root == transform.root)
+        if(e.DamageSource?.transform.root == transform.root)
         {
             e.DamageDealt = Mathf.CeilToInt(e.DamageDealt * (1 + (0.2f * _amount)));
         }

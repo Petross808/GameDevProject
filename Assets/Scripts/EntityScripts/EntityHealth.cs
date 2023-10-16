@@ -21,15 +21,20 @@ public class EntityHealth : MonoBehaviour
     public virtual void ReceiveDamage(int amount, Hitbox source)
     {
         HitData hitData = new HitData(amount, source, this);
-        this.RaiseEvent<HitData>(OnEntityHit, hitData);
-        this.RaiseEvent<HitData>(OnAnyEntityHit, hitData);
+        if (source != null)
+        {
+            this.RaiseEvent<HitData>(OnEntityHit, hitData);
+            this.RaiseEvent<HitData>(OnAnyEntityHit, hitData);
+        }
+
         _health -= hitData.DamageDealt;
-        this.RaiseEvent<HitData>(OnAfterEntityHit, hitData);
-        this.RaiseEvent<HitData>(OnAfterAnyEntityHit, hitData);
-        if (_health <= 0 )
+        this.RaiseEvent(OnAfterEntityHit);
+        this.RaiseEvent(OnAfterAnyEntityHit);
+        if (_health <= 0)
         {
             Die(hitData);
         }
+
     }
 
     public virtual void Heal(int amount)
@@ -51,16 +56,19 @@ public class EntityHealth : MonoBehaviour
 
     public virtual void Die(HitData lastHit)
     {
-        this.RaiseEvent<HitData>(OnEntityDeath, lastHit);
-        this.RaiseEvent<HitData>(OnAnyEntityDeath, lastHit);
+        if(lastHit.DamageSource != null)
+        {
+            this.RaiseEvent<HitData>(OnEntityDeath, lastHit);
+            this.RaiseEvent<HitData>(OnAnyEntityDeath, lastHit);
+        }
         Destroy(this.gameObject);
     }
 
     public event EventHandler<HitData> OnEntityHit;
     public static event EventHandler<HitData> OnAnyEntityHit;
 
-    public event EventHandler<HitData> OnAfterEntityHit;
-    public static event EventHandler<HitData> OnAfterAnyEntityHit;
+    public event EventHandler OnAfterEntityHit;
+    public static event EventHandler OnAfterAnyEntityHit;
 
     public event EventHandler<HitData> OnEntityDeath;
     public static event EventHandler<HitData> OnAnyEntityDeath;

@@ -20,8 +20,6 @@ public class Hitbox : MonoBehaviour
             {
                 entityHealth.ReceiveDamage(_attack.Damage, this);
             }
-
-            
         }
     }
 }

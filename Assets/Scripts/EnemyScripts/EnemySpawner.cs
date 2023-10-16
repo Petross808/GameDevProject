@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,7 +15,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _spawnTimeVariance;
     [SerializeField]
+    private float _deltaSpawnTimePerTenSeconds;
+    [SerializeField]
     private GameObject _enemyTarget;
+
+
+    [SerializeField]
+    private int _burstSize;
+    [SerializeField]
+    private float _burstSpawnTime;
+    [SerializeField]
+    private int _enableBurstsAt;
+    [SerializeField]
+    private int _timeBetweenBurst;
+    
 
     private bool _enabled = false;
     private EntityHealth _targetEntityHealth;
@@ -28,7 +42,28 @@ public class EnemySpawner : MonoBehaviour
         if(_enemyTarget.TryGetComponent<EntityHealth>(out _targetEntityHealth))
         {
             _targetEntityHealth.OnEntityDeath += Disable;
+            GameState.OnGameSecondPassed += UpdateSpawnRate;
+            GameState.OnGameSecondPassed += ActivateBurst;
             _enabled = true;
+        }
+    }
+
+    private void ActivateBurst(object sender, int e)
+    {
+        if (!_enabled) return;
+        if(e < _enableBurstsAt) return;
+
+        if(e%_timeBetweenBurst == 0)
+        {
+            StartCoroutine(Burst());
+        }
+    }
+
+    private void UpdateSpawnRate(object sender, int e)
+    {
+        if(e%10 == 0)
+        {
+            _unitSpawnTime *= _deltaSpawnTimePerTenSeconds;
         }
     }
 
@@ -63,11 +98,23 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private IEnumerator Burst()
+    {
+        for(int i = 0; i<_burstSize; i++)
+        {
+            if (!_enabled) break;
+            SpawnUnit();
+            yield return new WaitForSeconds(_burstSpawnTime);
+        }
+    }
+
     private void OnDestroy()
     {
         if(_enabled)
         {
-            _targetEntityHealth.OnEntityDeath += Disable;
+            _targetEntityHealth.OnEntityDeath -= Disable;
+            GameState.OnGameSecondPassed -= UpdateSpawnRate;
+            GameState.OnGameSecondPassed -= ActivateBurst;
         }
     }
 }

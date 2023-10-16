@@ -19,7 +19,7 @@ public class HealthbarScript : MonoBehaviour
         }
     }
 
-    private void UpdateHealthBar(object sender, HitData data)
+    private void UpdateHealthBar(object sender, object args)
     {
         if (!gameObject.activeSelf)
         {
