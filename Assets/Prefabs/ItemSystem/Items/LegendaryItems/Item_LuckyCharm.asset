@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Lucky Charm
   _itemDescription: Double all gained XP.
-  _entityModifier: {fileID: 11500000, guid: d818b13c7c8ba284da1e9691f16b25f3, type: 3}
+  _entityModifier: EM_DoubleXP

@@ -15,6 +15,9 @@ public class GameState : MonoBehaviour
     private IController _playerController;
     private GameInput _gameInput;
 
+    private float _gameTime;
+    private int _gameSeconds;
+
     void Awake()
     {
         _gameInput = GetComponent<GameInput>();
@@ -41,6 +44,7 @@ public class GameState : MonoBehaviour
     {
         _playerController = _player.GetComponent<PlayerController>();
         ChangeController(_playerController);
+        this.RaiseEvent(OnGameStart);
     }
 
     private void SpawnPlayer()
@@ -81,6 +85,17 @@ public class GameState : MonoBehaviour
         if(data.DamageReceiver.transform.root.CompareTag("Crystal"))
         {
             Debug.Log("GameOver");
+            this.RaiseEvent(OnGameEnd);
+        }
+    }
+
+    private void Update()
+    {
+        _gameTime += Time.deltaTime;
+        if(Mathf.FloorToInt(_gameTime) != _gameSeconds)
+        {
+            _gameSeconds = Mathf.FloorToInt(_gameTime);
+            this.RaiseEvent<int>(OnGameSecondPassed, _gameSeconds);
         }
     }
 
@@ -91,4 +106,7 @@ public class GameState : MonoBehaviour
         EntityInventory.OnAnyEntityGainItem -= ResumeGame;
     }
 
+    public static event EventHandler OnGameStart;
+    public static event EventHandler<int> OnGameSecondPassed;
+    public static event EventHandler OnGameEnd;
 }

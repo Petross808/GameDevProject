@@ -38,8 +38,6 @@ public class EntityLeveling : MonoBehaviour
         this.RaiseEvent<XPData>(OnEntityGainXP, xpData);
         this.RaiseEvent<XPData>(OnAnyEntityGainXP, xpData);
         _experience += xpData.XpAmount;
-
-
         CheckForLevelUp();
     }
 
@@ -55,6 +53,9 @@ public class EntityLeveling : MonoBehaviour
 
     private void CheckForLevelUp()
     {
+        this.RaiseEvent(OnAfterEntityGainXP);
+        this.RaiseEvent(OnAfterAnyEntityGainXP);
+
         if (_experience >= _xpToLvlUp)
         {
             LevelUp();
@@ -62,8 +63,10 @@ public class EntityLeveling : MonoBehaviour
     }
 
     public event EventHandler<XPData> OnEntityGainXP;
+    public event EventHandler OnAfterEntityGainXP;
     public event EventHandler<int> OnEntityLevelUp;
     public static event EventHandler<XPData> OnAnyEntityGainXP;
+    public static event EventHandler OnAfterAnyEntityGainXP;
     public static event EventHandler<int> OnAnyEntityLevelUp;
 
 }

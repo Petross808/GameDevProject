@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Crystal Max Health
   _itemDescription: Increases the Crystal's max health.
-  _entityModifier: {fileID: 11500000, guid: 29c85ab0c05db1745991d54851c337eb, type: 3}
+  _entityModifier: EM_CrystalAddMaxHealth

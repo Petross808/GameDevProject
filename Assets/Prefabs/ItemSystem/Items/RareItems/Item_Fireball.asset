@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Fireball
   _itemDescription: 'New secondary skill: Small high damage projectile'
-  _entityModifier: {fileID: 11500000, guid: 69c20140b65ae184b85a16e843ce2963, type: 3}
+  _entityModifier: EM_Fireball

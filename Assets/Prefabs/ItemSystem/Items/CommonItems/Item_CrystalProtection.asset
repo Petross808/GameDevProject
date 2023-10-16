@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Reinforcements
   _itemDescription: The Crystal takes less damage.
-  _entityModifier: {fileID: 11500000, guid: 8cf45decf0983c842bb0196c963eb26c, type: 3}
+  _entityModifier: EM_CrystalProtection

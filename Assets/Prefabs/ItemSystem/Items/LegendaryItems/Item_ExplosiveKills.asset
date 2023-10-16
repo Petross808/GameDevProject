@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Explosive Finale
   _itemDescription: Enemies explode on death
-  _entityModifier: {fileID: 11500000, guid: 56ec5b9e5bf92cc42a9ac6860e30a048, type: 3}
+  _entityModifier: EM_ExplodeOnKill

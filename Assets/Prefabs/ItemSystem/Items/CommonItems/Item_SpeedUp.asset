@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Boots of Swiftness
   _itemDescription: Increases movement speed.
-  _entityModifier: {fileID: 11500000, guid: 9ef7eca6210176046bdc704f215243b5, type: 3}
+  _entityModifier: EM_SpeedUp

@@ -15,7 +15,7 @@
     -unity-text-outline-color: rgb(0, 0, 0);
     width: 60%;
     align-self: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #CrystalHealth .unity-progress-bar__progress {
@@ -36,4 +36,24 @@
 
 #CrystalHealth .unity-progress-bar__background {
     background-color: rgb(46, 7, 7);
+}
+
+#Timer {
+    align-self: center;
+    align-items: center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    opacity: 0.4;
+}
+
+#XpBar {
+    flex-shrink: 0;
+    width: 100%;
+    height: 5px;
+    align-items: stretch;
+    align-self: flex-start;
+    background-color: rgb(255, 255, 255);
 }

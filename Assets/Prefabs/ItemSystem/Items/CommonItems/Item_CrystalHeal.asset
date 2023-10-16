@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Crystal Heal
   _itemDescription: Heals 25% of the Crystal's health.
-  _entityModifier: {fileID: 11500000, guid: 09aaad2f056365e4294e721b4f4925e6, type: 3}
+  _entityModifier: EM_CrystalHeal

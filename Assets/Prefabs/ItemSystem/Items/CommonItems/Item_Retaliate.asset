@@ -15,4 +15,4 @@ MonoBehaviour:
   _itemName: Retaliate
   _itemDescription: Reflect fraction of the damage dealt to the crystal back to the
     enemy.
-  _entityModifier: {fileID: 11500000, guid: 61ba54dba14f43e41ab5584418f81832, type: 3}
+  _entityModifier: EM_Retaliate

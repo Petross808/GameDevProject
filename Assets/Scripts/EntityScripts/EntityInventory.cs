@@ -24,7 +24,7 @@ public class EntityInventory : MonoBehaviour
         this.RaiseEvent<ItemSO>(OnEntityGainItem, item);
         this.RaiseEvent<ItemSO>(OnAnyEntityGainItem, item);
 
-        System.Type entityModType = item.EntityModifier.GetClass();
+        System.Type entityModType = Type.GetType(item.EntityModifier);
 
         if(gameObject.TryGetComponent(entityModType, out Component component))
         {

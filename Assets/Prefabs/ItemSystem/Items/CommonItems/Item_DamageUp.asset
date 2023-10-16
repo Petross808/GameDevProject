@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Sharp Blade
   _itemDescription: Increases damage dealt.
-  _entityModifier: {fileID: 11500000, guid: 094ea40d57ff890488efb7acf5e593cd, type: 3}
+  _entityModifier: EM_DamageUp
