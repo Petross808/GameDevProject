@@ -7,8 +7,11 @@ public interface IController
 {
     void DirStart(InputAction.CallbackContext context);
     void DirStop(InputAction.CallbackContext context);
-    void SpacePressed(InputAction.CallbackContext context);
+    void SpaceStart(InputAction.CallbackContext context);
+    void SpaceStop(InputAction.CallbackContext context);
     void AimChanged(InputAction.CallbackContext context);
-    void LMBPressed(InputAction.CallbackContext context);
-    void RMBPressed(InputAction.CallbackContext context);
+    void LMBStart(InputAction.CallbackContext context);
+    void LMBStop(InputAction.CallbackContext context);
+    void RMBStart(InputAction.CallbackContext context);
+    void RMBStop(InputAction.CallbackContext context);
 }

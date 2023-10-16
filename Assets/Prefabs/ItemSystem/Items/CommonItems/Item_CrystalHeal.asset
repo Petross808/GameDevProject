@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
-  m_Name: Item_SpeedUp
+  m_Name: Item_CrystalHeal
   m_EditorClassIdentifier: 
-  _itemName: Boots of Swiftness
-  _itemDescription: Increases movement speed.
-  _entityModifier: {fileID: 0}
+  _itemName: Crystal Heal
+  _itemDescription: Heals 25% of the Crystal's health.
+  _entityModifier: {fileID: 11500000, guid: 09aaad2f056365e4294e721b4f4925e6, type: 3}

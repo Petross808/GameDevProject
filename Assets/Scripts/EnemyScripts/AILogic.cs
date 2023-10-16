@@ -54,6 +54,6 @@ public class AILogic : MonoBehaviour
     {
         _movement.MoveEnd();
         _aim.transform.up = (Vector2)_target.transform.position - (Vector2)transform.position;
-        _attackManager.PrimaryAttack();
+        _attackManager.UseAttack(EntityCombat.AttackSlot.PRIMARY);
     }
 }

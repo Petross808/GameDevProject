@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743271120557061453}
   m_LocalRotation: {x: -0, y: -0, z: 0.6684149, w: 0.74378866}
-  m_LocalPosition: {x: -0.06, y: 3.02, z: 0.02922827}
-  m_LocalScale: {x: 0.9984678, y: 0.63557, z: 1}
+  m_LocalPosition: {x: -0.26, y: 3.35, z: 0.02922827}
+  m_LocalScale: {x: 1.376546, y: 1.4032303, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436025442024765104}
@@ -108,14 +108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549831047122399905}
-  m_LocalRotation: {x: -0, y: -0, z: -0.25078928, w: 0.9680418}
-  m_LocalPosition: {x: -0.73, y: 2.5699997, z: 0.02922827}
-  m_LocalScale: {x: 0.7043265, y: 0.73775, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.3876326, w: 0.92181396}
+  m_LocalPosition: {x: -1.85, y: 2.61, z: 0.02922827}
+  m_LocalScale: {x: 1.2358279, y: 1.419311, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436025442024765104}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.615}
 --- !u!212 &1256626371614743941
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 918667199821304842}
   - component: {fileID: 8764947531728453840}
   m_Layer: 8
-  m_Name: EnemySwing
+  m_Name: Greatsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 4153024497172681620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5745722481210912745}
@@ -240,9 +240,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.8398241}
-  m_Size: {x: 2.4, y: 3.5857594}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 2}
+  m_Size: {x: 5.9715443, y: 4}
+  m_Direction: 1
 --- !u!114 &918667199821304842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,11 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519f1944d7a4c834088e4a3ec728dd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 50
-  _cooldown: 3
-  _hitMask:
-    serializedVersion: 2
-    m_Bits: 512
+  _damage: 200
+  _cooldown: 1.5
+  _attackTime: 0.083333336
 --- !u!1 &4685246756969006226
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,14 +294,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4685246756969006226}
-  m_LocalRotation: {x: -0, y: -0, z: 0.012404144, w: 0.9999231}
-  m_LocalPosition: {x: 0.95, y: 1.4499998, z: 0.02922827}
-  m_LocalScale: {x: 0.39783546, y: 0.74218, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.13768357, w: 0.99047625}
+  m_LocalPosition: {x: 2.26, y: 1.51, z: 0.02922827}
+  m_LocalScale: {x: 0.66611874, y: 0.80808556, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436025442024765104}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.421}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.828}
 --- !u!212 &4722864814500383175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -380,14 +378,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4687611630293334293}
-  m_LocalRotation: {x: -0, y: -0, z: 0.25828716, w: 0.9660682}
-  m_LocalPosition: {x: 0.6499999, y: 2.61, z: 0.02922827}
-  m_LocalScale: {x: 0.5666876, y: 0.7854822, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.42381412, w: 0.9057492}
+  m_LocalPosition: {x: 1.41, y: 2.75, z: 0.02922827}
+  m_LocalScale: {x: 1.0661513, y: 1.1889604, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436025442024765104}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.937}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 50.151}
 --- !u!212 &4175429324628227797
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour, IController
     private EntityMovement _movement;
     private Vector2 _mousePosition;
 
+    private bool _lmbHeld;
+    private bool _rmbHeld;
+    private bool _spaceHeld;
+
     void Awake()
     {
         _attackManager = GetComponent<EntityCombat>();
@@ -31,27 +35,48 @@ public class PlayerController : MonoBehaviour, IController
     {
         _movement.MoveEnd();
     }
-    public void SpacePressed(InputAction.CallbackContext context)
-    {
-        
-    }
+
     public void AimChanged(InputAction.CallbackContext context)
     {
-        _mousePosition = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        _mousePosition = context.ReadValue<Vector2>();
     }
 
-    public void LMBPressed(InputAction.CallbackContext context)
+    public void LMBStart(InputAction.CallbackContext context)
     {
-        _attackManager.PrimaryAttack();
+        _lmbHeld = true;
     }
 
-    public void RMBPressed(InputAction.CallbackContext context)
+    public void LMBStop(InputAction.CallbackContext context)
     {
-        _attackManager.SecondaryAttack();
+        _lmbHeld = false;
+    }
+
+    public void RMBStart(InputAction.CallbackContext context)
+    {
+        _rmbHeld = true;
+    }
+
+    public void RMBStop(InputAction.CallbackContext context)
+    {
+        _rmbHeld = false;
+    }
+
+    public void SpaceStart(InputAction.CallbackContext context)
+    {
+        _spaceHeld = true;
+    }
+
+    public void SpaceStop(InputAction.CallbackContext context)
+    {
+        _spaceHeld = false;
     }
 
     private void Update()
     {
-        _aim.transform.up = _mousePosition - (Vector2)transform.position;
+        _aim.transform.up = (Vector2)Camera.main.ScreenToWorldPoint(_mousePosition) - (Vector2)transform.position;
+
+        if(_lmbHeld) _attackManager.UseAttack(EntityCombat.AttackSlot.PRIMARY);
+        if(_rmbHeld) _attackManager.UseAttack(EntityCombat.AttackSlot.SECONDARY);
+        if(_spaceHeld) _attackManager.UseAttack(EntityCombat.AttackSlot.UTILITY);
     }
 }

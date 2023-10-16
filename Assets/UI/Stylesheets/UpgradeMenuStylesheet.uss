@@ -47,7 +47,7 @@
     align-self: center;
     flex-shrink: 0;
     position: relative;
-    background-color: rgba(200, 200, 200, 0.6);
+    background-color: rgba(188, 188, 188, 0.82);
     border-left-color: rgb(0, 0, 0);
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
@@ -81,7 +81,8 @@
     padding-top: 15px;
     padding-bottom: 15px;
     -unity-text-align: upper-center;
-    font-size: 150%;
+    font-size: 120%;
+    -unity-font-style: bold;
 }
 
 .UpgradeOption > #Desc {
@@ -92,6 +93,7 @@
     overflow: hidden;
     white-space: normal;
     font-size: 100%;
+    -unity-text-align: upper-center;
 }
 
 #Confirm {

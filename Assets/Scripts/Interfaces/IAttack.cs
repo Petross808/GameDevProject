@@ -6,7 +6,7 @@ public interface IAttack
 {
     int Damage { get; set; }
     float Cooldown { get; set; }
-    LayerMask HitMask { get; }
+    LayerMask HitMask { get; set; }
 
     void Attack(Transform aim);
     void CooldownTick();

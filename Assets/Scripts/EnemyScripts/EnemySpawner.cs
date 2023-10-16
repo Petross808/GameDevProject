@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -15,23 +16,42 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject _enemyTarget;
 
+    private bool _enabled = false;
+    private EntityHealth _targetEntityHealth;
+
+
     private float _unitTimer;
 
     void Awake()
     {
         _unitTimer = _unitSpawnTime;
+        if(_enemyTarget.TryGetComponent<EntityHealth>(out _targetEntityHealth))
+        {
+            _targetEntityHealth.OnEntityDeath += Disable;
+            _enabled = true;
+        }
+    }
+
+    private void Disable(object sender, HitData e)
+    {
+        _enabled = false;
     }
 
     private void SpawnUnit()
     {
-        Vector2 randPos = UnityEngine.Random.insideUnitCircle.normalized * 30;
-        Transform unit = Instantiate(_enemyTemplate, new Vector3(randPos.x, randPos.y, 1) ,new Quaternion(0,0,0,0));
+        Vector2 spawnPos = (UnityEngine.Random.insideUnitCircle.normalized * 50) - (Vector2)(_enemyTarget.transform.position);
+        Transform unit = Instantiate(_enemyTemplate, new Vector3(spawnPos.x, spawnPos.y, 1) ,new Quaternion(0,0,0,0));
         unit.GetComponent<AILogic>().Target = _enemyTarget;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_enabled)
+        {
+            return;
+        }
+
         if (_unitTimer > 0)
         {
             _unitTimer -= Time.deltaTime;
@@ -40,6 +60,14 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnUnit();
             _unitTimer = UnityEngine.Random.Range((1f - _spawnTimeVariance) * _unitSpawnTime, (1f + _spawnTimeVariance) * _unitSpawnTime);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(_enabled)
+        {
+            _targetEntityHealth.OnEntityDeath += Disable;
         }
     }
 }

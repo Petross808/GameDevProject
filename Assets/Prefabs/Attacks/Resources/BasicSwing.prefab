@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 918667199821304842}
   - component: {fileID: 8764947531728453840}
   m_Layer: 8
-  m_Name: PlayerSwing
+  m_Name: BasicSwing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

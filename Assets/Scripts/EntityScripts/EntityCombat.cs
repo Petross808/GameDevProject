@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,38 +11,58 @@ public class EntityCombat : MonoBehaviour
     private Transform _baseAttackTemplate;
     [SerializeField]
     private Transform _aim;
+    [SerializeField]
+    private LayerMask _attackHitMask;
 
-    private IAttack _primaryAttack;
-    private IAttack _secondaryAttack;
+    private IAttack[] _attacks;
+    private List<IAttack> _auras;
 
+    public LayerMask AttackHitMask { get => _attackHitMask; }
 
-    // Start is called before the first frame update
+    public enum AttackSlot
+    {
+        PRIMARY = 0,
+        SECONDARY = 1,
+        UTILITY = 2,
+        AURA = 3
+    }
+
     void Awake()
     {
-        RegisterAttack(ref _primaryAttack, _baseAttackTemplate);
-        RegisterAttack(ref _secondaryAttack, _baseAttackTemplate);
+        _attacks = new IAttack[3];
+        _auras = new List<IAttack>();
+        RegisterAttack(AttackSlot.PRIMARY, _baseAttackTemplate);
     }
 
-    private void RegisterAttack(ref IAttack slotReference, Transform attackToRegister)
+    public IAttack RegisterAttack(AttackSlot slot, Transform attackToRegister)
     {
-        Transform attackTransform = Instantiate(attackToRegister);
-        attackTransform.parent = transform;
-        slotReference = attackTransform.GetComponent<IAttack>();
-        attackTransform.gameObject.SetActive(false);
+        Transform attackTransform = Instantiate(attackToRegister, transform, false);
+        IAttack attack = attackTransform.GetComponent<IAttack>();
+        if(slot != AttackSlot.AURA)
+        {
+            _attacks[(int)slot] = attack;
+            attackTransform.gameObject.SetActive(false);
+            _attacks[(int)slot].HitMask = _attackHitMask;
+        }
+        else
+        {
+            _auras.Add(attack);
+            _auras.Last().HitMask = _attackHitMask;
+        }
+
+        return attack;
     }
 
-    public void PrimaryAttack()
+    public void UseAttack(AttackSlot slot)
     {
-        _primaryAttack.Attack(_aim);
-    }
-    public void SecondaryAttack()
-    {
-        _secondaryAttack.Attack(_aim);
+        _attacks[(int)slot]?.Attack(_aim);
     }
 
     void Update()
     {
-        _primaryAttack.CooldownTick();
-        _secondaryAttack.CooldownTick();
+        foreach (var attack in _attacks)
+        {
+            attack?.CooldownTick();
+        }
     }
 }

@@ -18,10 +18,13 @@ public class GameInput : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _playerInput.actions["WASD"].performed += DirStart;
         _playerInput.actions["WASD"].canceled += DirStop;
-        _playerInput.actions["Space"].performed += SpacePressed;
+        _playerInput.actions["LMB"].performed += LMBStart;
+        _playerInput.actions["LMB"].canceled += LMBStop;
+        _playerInput.actions["RMB"].performed += RMBStart;
+        _playerInput.actions["RMB"].canceled += RMBStop;
+        _playerInput.actions["Space"].performed += SpaceStart;
+        _playerInput.actions["Space"].canceled += SpaceStop;
         _playerInput.actions["MouseAim"].performed += AimChanged;
-        _playerInput.actions["LMB"].performed += LMBPressed;
-        _playerInput.actions["RMB"].performed += RMBPressed;
     }
 
     private void DirStart(InputAction.CallbackContext context)
@@ -34,9 +37,14 @@ public class GameInput : MonoBehaviour
         _controller?.DirStop(context);
     }
 
-    private void SpacePressed(InputAction.CallbackContext context)
+    private void SpaceStart(InputAction.CallbackContext context)
     {
-        _controller?.SpacePressed(context);
+        _controller?.SpaceStart(context);
+    }
+
+    private void SpaceStop(InputAction.CallbackContext context)
+    {
+        _controller?.SpaceStop(context);
     }
 
     private void AimChanged(InputAction.CallbackContext context)
@@ -44,23 +52,36 @@ public class GameInput : MonoBehaviour
         _controller?.AimChanged(context);
     }
 
-    private void LMBPressed(InputAction.CallbackContext context)
+    private void LMBStart(InputAction.CallbackContext context)
     {
-        _controller?.LMBPressed(context);
+        _controller?.LMBStart(context);
     }
 
-    private void RMBPressed(InputAction.CallbackContext context)
+    private void LMBStop(InputAction.CallbackContext context)
     {
-        _controller?.RMBPressed(context);
+        _controller?.LMBStop(context);
+    }
+
+    private void RMBStart(InputAction.CallbackContext context)
+    {
+        _controller?.RMBStart(context);
+    }
+
+    private void RMBStop(InputAction.CallbackContext context)
+    {
+        _controller?.RMBStop(context);
     }
 
     private void OnDestroy()
     {
         _playerInput.actions["WASD"].performed -= DirStart;
         _playerInput.actions["WASD"].canceled -= DirStop;
-        _playerInput.actions["Space"].performed -= SpacePressed;
+        _playerInput.actions["LMB"].performed -= LMBStart;
+        _playerInput.actions["LMB"].canceled -= LMBStop;
+        _playerInput.actions["RMB"].performed -= RMBStart;
+        _playerInput.actions["RMB"].canceled -= RMBStop;
+        _playerInput.actions["Space"].performed -= SpaceStart;
+        _playerInput.actions["Space"].canceled -= SpaceStop;
         _playerInput.actions["MouseAim"].performed -= AimChanged;
-        _playerInput.actions["LMB"].performed -= LMBPressed;
-        _playerInput.actions["RMB"].performed -= RMBPressed;
     }
 }

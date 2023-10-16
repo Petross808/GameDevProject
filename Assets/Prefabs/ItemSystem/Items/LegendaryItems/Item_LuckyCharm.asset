@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
-  m_Name: Item_CrystalProtection
+  m_Name: Item_LuckyCharm
   m_EditorClassIdentifier: 
-  _itemName: Crystal Reinforcements
-  _itemDescription: The Crystal takes less damage.
-  _entityModifier: {fileID: 11500000, guid: 8cf45decf0983c842bb0196c963eb26c, type: 3}
+  _itemName: Lucky Charm
+  _itemDescription: Double all gained XP.
+  _entityModifier: {fileID: 11500000, guid: d818b13c7c8ba284da1e9691f16b25f3, type: 3}

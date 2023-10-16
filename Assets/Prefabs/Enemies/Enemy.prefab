@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 4
   _aim: {fileID: 5457131133419339931}
+  _target: {fileID: 0}
 --- !u!114 &3323370817659657172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3150b57e35743ae4ab2572bb3d28ca60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseAttackTemplate: {fileID: 1436025442024765104, guid: b921ff6c583bb0d4d8c108a7dec658f0, type: 3}
+  _baseAttackTemplate: {fileID: 1436025442024765104, guid: f6d79c793fe6a604585bac54ab1e7df5, type: 3}
   _aim: {fileID: 5457131133419339931}
+  _attackHitMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0

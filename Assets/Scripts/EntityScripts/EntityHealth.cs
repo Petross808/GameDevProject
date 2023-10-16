@@ -37,6 +37,16 @@ public class EntityHealth : MonoBehaviour
         _health = (_health + amount) > _maxHealth ? _maxHealth : _health + amount;
     }
 
+    public virtual void SetMaxHealth(int value)
+    {
+        _maxHealth = (value > 0) ? value : 1;
+
+        if (_health > _maxHealth)
+        {
+            _health = _maxHealth;
+        }
+    }
+
     public virtual void Die(HitData lastHit)
     {
         this.RaiseEvent<HitData>(OnEntityDeath, lastHit);

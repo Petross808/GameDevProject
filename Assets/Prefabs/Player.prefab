@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 418611414808431037}
   - component: {fileID: 7508393886139201401}
   m_Layer: 6
-  m_Name: PlayerTopDown
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,6 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseAttackTemplate: {fileID: 1436025442024765104, guid: f6d79c793fe6a604585bac54ab1e7df5, type: 3}
   _aim: {fileID: 679562802115232979}
+  _attackHitMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7863534737202539592
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,7 +22,6 @@ public class EM_XpOnKill : MonoBehaviour, IEntityModifier
         if(e.DamageSource.transform.root == transform.root)
         {
             _leveling.GainExperience(200);
-            Debug.Log("XP");
         }
     }
 
