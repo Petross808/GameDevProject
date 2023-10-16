@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheets/MainMenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=51fbbf8d048f49f40b5863df99e45f7c&amp;type=3#MainMenuStyleSheet" />
+    <ui:Label tabindex="-1" text="A game where you need to kill a lot of enemies before they destroy your precious crystal (working title)" display-tooltip-when-elided="true" name="GameTitle" style="color: rgb(255, 255, 255);" />
+    <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" />
+</ui:UXML>

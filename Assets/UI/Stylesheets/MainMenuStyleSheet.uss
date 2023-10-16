@@ -1,0 +1,19 @@
+#GameTitle {
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-overflow: clip;
+    white-space: normal;
+    margin-top: 10%;
+}
+
+#PlayButton {
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
