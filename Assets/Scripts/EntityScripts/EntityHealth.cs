@@ -24,6 +24,8 @@ public class EntityHealth : MonoBehaviour
         this.RaiseEvent<HitData>(OnEntityHit, hitData);
         this.RaiseEvent<HitData>(OnAnyEntityHit, hitData);
         _health -= hitData.DamageDealt;
+        this.RaiseEvent<HitData>(OnAfterEntityHit, hitData);
+        this.RaiseEvent<HitData>(OnAfterAnyEntityHit, hitData);
         if (_health <= 0 )
         {
             Die(hitData);
@@ -32,9 +34,9 @@ public class EntityHealth : MonoBehaviour
 
     public virtual void Heal(int amount)
     {
-        this.RaiseEvent<int>(OnEntityHeal, amount);
-        this.RaiseEvent<int>(OnAnyEntityHeal, amount);
         _health = (_health + amount) > _maxHealth ? _maxHealth : _health + amount;
+        this.RaiseEvent<int>(OnAfterEntityHeal, amount);
+        this.RaiseEvent<int>(OnAfterAnyEntityHeal, amount);
     }
 
     public virtual void SetMaxHealth(int value)
@@ -57,10 +59,13 @@ public class EntityHealth : MonoBehaviour
     public event EventHandler<HitData> OnEntityHit;
     public static event EventHandler<HitData> OnAnyEntityHit;
 
+    public event EventHandler<HitData> OnAfterEntityHit;
+    public static event EventHandler<HitData> OnAfterAnyEntityHit;
+
     public event EventHandler<HitData> OnEntityDeath;
     public static event EventHandler<HitData> OnAnyEntityDeath;
 
-    public event EventHandler<int> OnEntityHeal;
-    public static event EventHandler<int> OnAnyEntityHeal;
+    public event EventHandler<int> OnAfterEntityHeal;
+    public static event EventHandler<int> OnAfterAnyEntityHeal;
 
 }

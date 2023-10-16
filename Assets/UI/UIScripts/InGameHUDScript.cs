@@ -13,8 +13,8 @@ public class InGameHUDLogic : MonoBehaviour
     {
         _document = GetComponent<UIDocument>();
         _healthBar = _document.rootVisualElement.Q("CrystalHealth") as ProgressBar;
-        EntityHealth.OnAnyEntityHit += UpdateHealthbarOnHit;
-        EntityHealth.OnAnyEntityHeal += UpdateHealthbarOnHeal;
+        EntityHealth.OnAfterAnyEntityHit += UpdateHealthbarOnHit;
+        EntityHealth.OnAfterAnyEntityHeal += UpdateHealthbarOnHeal;
         _healthBar.value = 100;
     }
 
@@ -22,7 +22,7 @@ public class InGameHUDLogic : MonoBehaviour
     {
         if (hitdata.DamageReceiver.transform.root.CompareTag("Crystal"))
         {
-            int health = hitdata.DamageReceiver.Health - hitdata.DamageDealt;
+            int health = hitdata.DamageReceiver.Health;
             _healthBar.value = Mathf.Max(Mathf.Min(((float)health / hitdata.DamageReceiver.MaxHealth) * 100, 100), 0);
         }
     }
@@ -31,14 +31,14 @@ public class InGameHUDLogic : MonoBehaviour
         if(source is EntityHealth eh &&
             eh.gameObject.CompareTag("Crystal"))
         {
-            int health = eh.Health + amount;
+            int health = eh.Health;
             _healthBar.value = Mathf.Max(Mathf.Min(((float)health / eh.MaxHealth) * 100, 100), 0);
         }
     }
 
     private void OnDestroy()
     {
-        EntityHealth.OnAnyEntityHit -= UpdateHealthbarOnHit;
-        EntityHealth.OnAnyEntityHeal -= UpdateHealthbarOnHeal;
+        EntityHealth.OnAfterAnyEntityHit -= UpdateHealthbarOnHit;
+        EntityHealth.OnAfterAnyEntityHeal -= UpdateHealthbarOnHeal;
     }
 }
