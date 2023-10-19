@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -10,16 +7,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Transform _enemyTemplate;
     [SerializeField]
+    private GameObject _enemyTarget;
+
+    [Header("Spawn Times")]
+    [SerializeField]
     [Range(0.01f, 120f)]
-    private float _unitSpawnTime;
+    private float _unitMaxSpawnTime;
+    [SerializeField]
+    [Range(0.01f, 120f)]
+    private float _unitMinSpawnTime;
     [SerializeField]
     private float _spawnTimeVariance;
     [SerializeField]
-    private float _deltaSpawnTimePerTenSeconds;
+    private float _spawnStartTime;
     [SerializeField]
-    private GameObject _enemyTarget;
+    private float _spawnEndTime;
 
-
+    [Header("Bursts")]
+    [SerializeField]
+    private bool _enableBursts;
     [SerializeField]
     private int _burstSize;
     [SerializeField]
@@ -28,11 +34,12 @@ public class EnemySpawner : MonoBehaviour
     private int _enableBurstsAt;
     [SerializeField]
     private int _timeBetweenBurst;
-    
 
-    private bool _enabled = false;
+
+    private float _unitSpawnTime;
+    private bool _initialized = false;
+    private bool _spawningEnabled = false;
     private EntityHealth _targetEntityHealth;
-
 
     private float _unitTimer;
 
@@ -44,13 +51,14 @@ public class EnemySpawner : MonoBehaviour
             _targetEntityHealth.OnEntityDeath += Disable;
             GameState.OnGameSecondPassed += UpdateSpawnRate;
             GameState.OnGameSecondPassed += ActivateBurst;
-            _enabled = true;
+            _initialized = true;
         }
     }
 
     private void ActivateBurst(object sender, int e)
     {
-        if (!_enabled) return;
+        if (!_spawningEnabled) return;
+        if (!_enableBursts) return;
         if(e < _enableBurstsAt) return;
 
         if(e%_timeBetweenBurst == 0)
@@ -59,21 +67,28 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void UpdateSpawnRate(object sender, int e)
+    private void UpdateSpawnRate(object sender, int gameTime)
     {
-        if(e%10 == 0)
+        if(gameTime > _spawnStartTime && gameTime < _spawnEndTime) 
         {
-            _unitSpawnTime *= _deltaSpawnTimePerTenSeconds;
+            _spawningEnabled = true;
+            CalculateSpawnRate(gameTime);
+        }
+        else
+        {
+            _spawningEnabled = false;
         }
     }
 
     private void Disable(object sender, HitData e)
     {
-        _enabled = false;
+        _spawningEnabled = false;
     }
 
     private void SpawnUnit()
     {
+        if(!_spawningEnabled) return;
+
         Vector2 spawnPos = (UnityEngine.Random.insideUnitCircle.normalized * 50) - (Vector2)(_enemyTarget.transform.position);
         Transform unit = Instantiate(_enemyTemplate, new Vector3(spawnPos.x, spawnPos.y, 1) ,new Quaternion(0,0,0,0));
         unit.GetComponent<AILogic>().Target = _enemyTarget;
@@ -82,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_enabled)
+        if (!_spawningEnabled)
         {
             return;
         }
@@ -102,15 +117,21 @@ public class EnemySpawner : MonoBehaviour
     {
         for(int i = 0; i<_burstSize; i++)
         {
-            if (!_enabled) break;
+            if (!_spawningEnabled) break;
             SpawnUnit();
             yield return new WaitForSeconds(_burstSpawnTime);
         }
     }
 
+    private void CalculateSpawnRate(int time)
+    {
+        float x = (time - _spawnEndTime) / (_spawnStartTime - _spawnEndTime);
+        _unitSpawnTime = _unitMinSpawnTime + (4 * x * (x - 1) + 1) * (_unitMaxSpawnTime - _unitMinSpawnTime) ;
+    }
+
     private void OnDestroy()
     {
-        if(_enabled)
+        if(_initialized)
         {
             _targetEntityHealth.OnEntityDeath -= Disable;
             GameState.OnGameSecondPassed -= UpdateSpawnRate;

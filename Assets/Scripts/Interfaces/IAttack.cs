@@ -8,6 +8,8 @@ public interface IAttack
     float Cooldown { get; set; }
     LayerMask HitMask { get; set; }
 
+    bool IsHealing { get; set; }
+
     void Attack(Transform aim);
     void CooldownTick();
 }

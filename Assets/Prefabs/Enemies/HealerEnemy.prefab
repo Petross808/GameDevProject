@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 3323370817659657172}
   - component: {fileID: 7726128730616641113}
   - component: {fileID: 2824802406984158696}
+  - component: {fileID: -5520091234829603667}
   m_Layer: 7
-  m_Name: TankEnemy
+  m_Name: HealerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 3623359031452427282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5457131133419339931}
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42650a08321644246be5896de1f4478b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 4
+  _range: 5
   _aim: {fileID: 5457131133419339931}
   _target: {fileID: 0}
 --- !u!114 &3323370817659657172
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c38b4a1f41b31649bc2ccecdf615ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 500
+  _maxHealth: 80
 --- !u!114 &7726128730616641113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,11 +209,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3150b57e35743ae4ab2572bb3d28ca60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseAttackTemplate: {fileID: 1436025442024765104, guid: b136f42aeda2dc84eb431be917196fe9, type: 3}
+  _baseAttackTemplate: {fileID: 1436025442024765104, guid: de475ee9d304a364b830f985e27d6607, type: 3}
   _aim: {fileID: 5457131133419339931}
   _attackHitMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
+--- !u!114 &-5520091234829603667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec169f3eb4e24a6458ccba897588e693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0

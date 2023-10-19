@@ -8,11 +8,14 @@ public class Attack_Explosion : MonoBehaviour, IAttack
     private int _damage = 50;
     [SerializeField]
     private float _cooldown = 1.5f;
+    [SerializeField]
+    private bool _isHealing = false;
 
     private LayerMask _hitMask = 0;
     public int Damage { get => _damage; set => _damage = value; }
     public float Cooldown { get => _cooldown; set => _cooldown = value; }
     public LayerMask HitMask { get => _hitMask; set => _hitMask = value; }
+    public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
 
     // Start is called before the first frame update

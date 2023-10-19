@@ -19,8 +19,8 @@ public class InGameHUDLogic : MonoBehaviour
         _xpBar = _document.rootVisualElement.Q("XpBar") as VisualElement;
         _timer = _document.rootVisualElement.Q("Timer") as Label;
 
-        EntityHealth.OnAfterAnyEntityHit += UpdateHealthbarOnHit;
-        EntityHealth.OnAfterAnyEntityHeal += UpdateHealthbarOnHeal;
+        EntityHealth.OnAfterAnyEntityHit += UpdateHealthbar;
+        EntityHealth.OnAfterAnyEntityHeal += UpdateHealthbar;
         GameState.OnGameSecondPassed += UpdateTimer;
         EntityLeveling.OnAfterAnyEntityGainXP += UpdateXPBar;
 
@@ -42,18 +42,9 @@ public class InGameHUDLogic : MonoBehaviour
         _timer.text = String.Format("{0:D2}:{1:D2}", (e / 60), (e % 60));
     }
 
-    public void UpdateHealthbarOnHit(object source, object args)
+    public void UpdateHealthbar(object source, object args)
     {
         if (source is EntityHealth eh &&
-            eh.transform.root.CompareTag("Crystal"))
-        {
-            int health = eh.Health;
-            _healthBar.value = Mathf.Max(Mathf.Min(((float)health / eh.MaxHealth) * 100, 100), 0);
-        }
-    }
-    public void UpdateHealthbarOnHeal(object source, int amount)
-    {
-        if(source is EntityHealth eh &&
             eh.gameObject.CompareTag("Crystal"))
         {
             int health = eh.Health;
@@ -63,8 +54,8 @@ public class InGameHUDLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        EntityHealth.OnAfterAnyEntityHit -= UpdateHealthbarOnHit;
-        EntityHealth.OnAfterAnyEntityHeal -= UpdateHealthbarOnHeal;
+        EntityHealth.OnAfterAnyEntityHit -= UpdateHealthbar;
+        EntityHealth.OnAfterAnyEntityHeal -= UpdateHealthbar;
         GameState.OnGameSecondPassed -= UpdateTimer;
         EntityLeveling.OnAfterAnyEntityGainXP -= UpdateXPBar;
     }

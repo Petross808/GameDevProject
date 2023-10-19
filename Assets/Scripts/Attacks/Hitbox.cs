@@ -15,10 +15,16 @@ public class Hitbox : MonoBehaviour
     {
         if((1 << collision.gameObject.layer | _attack.HitMask) == _attack.HitMask)
         {
-            EntityHealth entityHealth = collision.GetComponent<EntityHealth>();
-            if (entityHealth != null)
+            if (collision.TryGetComponent<EntityHealth>(out EntityHealth entityHealth))
             {
-                entityHealth.ReceiveDamage(_attack.Damage, this);
+                if(_attack.IsHealing)
+                {
+                    entityHealth.Heal(_attack.Damage);
+                }
+                else
+                {
+                    entityHealth.ReceiveDamage(_attack.Damage, this);
+                }
             }
         }
     }

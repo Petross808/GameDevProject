@@ -9,12 +9,15 @@ public class Attack_Ranged : MonoBehaviour, IAttack
     [SerializeField]
     private float _cooldown = 5f;
     [SerializeField]
+    private bool _isHealing = false;
+    [SerializeField]
     private Transform _projectileTemplate;
 
     private LayerMask _hitMask = 0;
     public int Damage { get => _damage; set => _damage = value; }
     public float Cooldown { get => _cooldown; set => _cooldown = value; }
     public LayerMask HitMask { get => _hitMask; set => _hitMask = value; }
+    public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
     private float _cdTimer;
     void Awake()

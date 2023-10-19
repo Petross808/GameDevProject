@@ -16,6 +16,7 @@ public class HealthbarScript : MonoBehaviour
         if( _entityHealth != null )
         {
             _entityHealth.OnAfterEntityHit += UpdateHealthBar;
+            _entityHealth.OnAfterEntityHeal += UpdateHealthBar;
         }
     }
 
@@ -27,6 +28,11 @@ public class HealthbarScript : MonoBehaviour
         }
         _fill.transform.localScale = new((float)_entityHealth.Health/_entityHealth.MaxHealth, _fill.transform.localScale.y, _fill.transform.localScale.z);
         _fill.transform.localPosition = new(-0.5f * (1- ((float)_entityHealth.Health / _entityHealth.MaxHealth)), _fill.transform.localPosition.y, _fill.transform.localPosition.z);
+        
+        if((float)_entityHealth.Health / _entityHealth.MaxHealth == 1)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()

@@ -588,6 +588,7 @@ GameObject:
   - component: {fileID: 1310418376}
   - component: {fileID: 1310418379}
   - component: {fileID: 1310418378}
+  - component: {fileID: 1310418380}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -608,10 +609,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTemplate: {fileID: 7023385453524007879, guid: 86acb816a2c14f14e85b1f426ef3bc3e, type: 3}
-  _unitSpawnTime: 2
-  _spawnTimeVariance: 0
-  _deltaSpawnTimePerTenSeconds: 1.05
   _enemyTarget: {fileID: 1121950755}
+  _unitMaxSpawnTime: 3
+  _unitMinSpawnTime: 1.5
+  _spawnTimeVariance: 0.1
+  _spawnStartTime: 0
+  _spawnEndTime: 300
+  _enableBursts: 0
   _burstSize: 5
   _burstSpawnTime: 1
   _enableBurstsAt: 1
@@ -644,10 +648,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTemplate: {fileID: 7023385453524007879, guid: 16da158f777c1474a81fa488ba06df74, type: 3}
-  _unitSpawnTime: 20
-  _spawnTimeVariance: 0
-  _deltaSpawnTimePerTenSeconds: 0.95
   _enemyTarget: {fileID: 1121950755}
+  _unitMaxSpawnTime: 15
+  _unitMinSpawnTime: 2
+  _spawnTimeVariance: 0.1
+  _spawnStartTime: 100
+  _spawnEndTime: 900
+  _enableBursts: 0
   _burstSize: 3
   _burstSpawnTime: 170
   _enableBurstsAt: 40
@@ -665,14 +672,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTemplate: {fileID: 7023385453524007879, guid: 04f502770468cdc4d99743895c46d2ab, type: 3}
-  _unitSpawnTime: 10
-  _spawnTimeVariance: 0
-  _deltaSpawnTimePerTenSeconds: 0.99
   _enemyTarget: {fileID: 1121950755}
+  _unitMaxSpawnTime: 10
+  _unitMinSpawnTime: 5
+  _spawnTimeVariance: 0
+  _spawnStartTime: 70
+  _spawnEndTime: 600
+  _enableBursts: 0
   _burstSize: 5
   _burstSpawnTime: 2
   _enableBurstsAt: 110
   _timeBetweenBurst: 60
+--- !u!114 &1310418380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310418375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daa4ba548b63174fb1ff17ba09134a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyTemplate: {fileID: 7023385453524007879, guid: 2f2e848df64fa2a4293055b4138411db, type: 3}
+  _enemyTarget: {fileID: 1121950755}
+  _unitMaxSpawnTime: 10
+  _unitMinSpawnTime: 2
+  _spawnTimeVariance: 0.2
+  _spawnStartTime: 100
+  _spawnEndTime: 1300
+  _enableBursts: 0
+  _burstSize: 0
+  _burstSpawnTime: 0
+  _enableBurstsAt: 0
+  _timeBetweenBurst: 0
 --- !u!4 &1314062008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8512669326664206245, guid: bfe5715d78bb3b449933f6baab84e9c6, type: 3}
