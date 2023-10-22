@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 7863534737202539592}
   - component: {fileID: 418611414808431037}
   - component: {fileID: 7508393886139201401}
+  - component: {fileID: 8136451733733879533}
+  - component: {fileID: -4027874274860442087}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -81,8 +83,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -7120985331674907050, guid: 0576496877b771346af2c50bc9134b89, type: 3}
   m_Color: {r: 0.48871484, g: 0.8301887, b: 0.5970228, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,8 +156,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.05, y: -0.7}
+  m_Radius: 0.3
 --- !u!114 &7550529152303777703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +241,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685e003df89cb8641bec98c587690693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8136451733733879533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792807686052573130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e74d731f5c7aa43a355864b964e474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &-4027874274860442087
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792807686052573130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a63932cf4f1cc6c459bd5a940e78d043, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8797488124295833172
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8797488124295833172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.029, y: -0.634, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

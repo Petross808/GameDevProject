@@ -10,6 +10,7 @@ public class EM_ExplodeOnKill : MonoBehaviour, IEntityModifier
 
     private EntityCombat _combat;
     private Transform _explosion;
+    private LayerMask _hitMask;
 
     public void AddAnother()
     {
@@ -22,7 +23,7 @@ public class EM_ExplodeOnKill : MonoBehaviour, IEntityModifier
 
         if (TryGetComponent<EntityCombat>(out _combat))
         {
-            _explosion.GetComponent<IAttack>().HitMask = _combat.AttackHitMask;
+            _hitMask = _combat.AttackHitMask;
             EntityHealth.OnAnyEntityDeath += SpawnExplosion;
         }
     }
@@ -31,7 +32,8 @@ public class EM_ExplodeOnKill : MonoBehaviour, IEntityModifier
     {
         if(e.DamageSource.transform.root == transform.root)
         {
-            Instantiate(_explosion, e.DamageReceiver.transform.position, e.DamageReceiver.transform.rotation);
+            Transform instance = Instantiate(_explosion, e.DamageReceiver.transform.position, e.DamageReceiver.transform.rotation);
+            instance.GetComponent<IAttack>().HitMask = _hitMask;
         }
     }
 

@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3323370817659657172}
   - component: {fileID: 7726128730616641113}
   - component: {fileID: 2824802406984158696}
+  - component: {fileID: 835956782033425525}
+  - component: {fileID: 5429822289350504493}
   m_Layer: 7
   m_Name: LightEnemy
   m_TagString: Untagged
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 3204909847116724698, guid: ebf46d26d160f68449f1492b6dcd473f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,8 +155,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.004930496, y: -0.562086}
+  m_Radius: 1.2445173
 --- !u!114 &3092224941459093689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +215,40 @@ MonoBehaviour:
   _attackHitMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!95 &835956782033425525
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98c7849503093e448be10bd6ea8288ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5429822289350504493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e74d731f5c7aa43a355864b964e474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7005012764399682282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.177, y: -0.591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,6 +288,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7023385453524007879}
     m_Modifications:
+    - target: {fileID: -5615854674455197313, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: -0.0016500056
+      objectReference: {fileID: 0}
+    - target: {fileID: -5615854674455197313, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: 0.0016499758
+      objectReference: {fileID: 0}
+    - target: {fileID: -5615854674455197313, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.50745
+      objectReference: {fileID: 0}
+    - target: {fileID: -5615854674455197313, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.50825
+      objectReference: {fileID: 0}
     - target: {fileID: 3267395687917125651, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -274,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5081422663589236762, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 5081422663589236762, guid: 7f94884a2926bf944b1c7ef5a10c0913, type: 3}
       propertyPath: m_LocalPosition.z

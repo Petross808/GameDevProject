@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(GameInput))]
 public class GameState : MonoBehaviour
@@ -15,6 +16,7 @@ public class GameState : MonoBehaviour
     private IController _playerController;
     private GameInput _gameInput;
 
+    [SerializeField]
     private float _gameTime;
     private int _gameSeconds;
 
@@ -84,8 +86,15 @@ public class GameState : MonoBehaviour
     {
         if(data.DamageReceiver.transform.root.CompareTag("Crystal"))
         {
-            Debug.Log("GameOver");
             this.RaiseEvent(OnGameEnd);
+        }
+    }
+
+    public void CheckGameWon()
+    {
+        if(_gameSeconds == 600)
+        {
+            this.RaiseEvent(OnGameWon);
         }
     }
 
@@ -96,6 +105,7 @@ public class GameState : MonoBehaviour
         {
             _gameSeconds = Mathf.FloorToInt(_gameTime);
             this.RaiseEvent<int>(OnGameSecondPassed, _gameSeconds);
+            CheckGameWon();
         }
     }
 
@@ -109,4 +119,5 @@ public class GameState : MonoBehaviour
     public static event EventHandler OnGameStart;
     public static event EventHandler<int> OnGameSecondPassed;
     public static event EventHandler OnGameEnd;
+    public static event EventHandler OnGameWon;
 }

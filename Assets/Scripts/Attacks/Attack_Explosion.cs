@@ -7,7 +7,7 @@ public class Attack_Explosion : MonoBehaviour, IAttack
     [SerializeField]
     private int _damage = 50;
     [SerializeField]
-    private float _cooldown = 1.5f;
+    private float _cooldown = 0.25f;
     [SerializeField]
     private bool _isHealing = false;
 

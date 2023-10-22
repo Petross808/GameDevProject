@@ -88,6 +88,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnUnit()
     {
         if(!_spawningEnabled) return;
+        if (_enemyTarget == null) return;
 
         Vector2 spawnPos = (UnityEngine.Random.insideUnitCircle.normalized * 50) - (Vector2)(_enemyTarget.transform.position);
         Transform unit = Instantiate(_enemyTemplate, new Vector3(spawnPos.x, spawnPos.y, 1) ,new Quaternion(0,0,0,0));
