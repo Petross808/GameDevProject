@@ -8,59 +8,51 @@
 }
 
 #UpgradeMenuTitle {
-    font-size: 200%;
-    -unity-text-align: upper-center;
-    -unity-font-style: bold;
-    background-color: rgb(168, 168, 168);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
+    font-size: 48px;
+    -unity-text-align: middle-center;
+    -unity-font-style: normal;
+    width: 256px;
+    height: 64px;
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2020845106392875415&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_24');
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    letter-spacing: 10px;
     padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #UpgradeInnerFlex {
-    flex-direction: row;
-    flex-shrink: 1;
-    width: 70%;
     justify-content: center;
     align-self: center;
     align-items: center;
-    flex-grow: 1;
+    flex-direction: row;
 }
 
 .UpgradeOption {
-    width: 30%;
-    height: 80%;
-    flex-direction: column;
-    flex-basis: auto;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    align-self: center;
-    flex-shrink: 0;
-    position: relative;
-    background-color: rgba(188, 188, 188, 0.82);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-left-width: 2px;
-    border-right-width: 2px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    flex-grow: 0;
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    flex-shrink: 0;
+    align-items: center;
+    width: 256px;
+    height: 400px;
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2020845106392875415&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_24');
+    opacity: 1;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    border-left-color: rgba(232, 255, 0, 0.31);
+    border-right-color: rgba(232, 255, 0, 0.31);
+    border-top-color: rgba(232, 255, 0, 0.31);
+    border-bottom-color: rgba(232, 255, 0, 0.31);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .UpgradeOption > #Sprite {
@@ -75,14 +67,18 @@
 }
 
 .UpgradeOption > #Name {
-    width: 100%;
+    width: 230px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     -unity-text-align: upper-center;
-    font-size: 120%;
-    -unity-font-style: bold;
+    font-size: 32px;
+    -unity-font-style: normal;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=-5376358965234703051&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_2');
 }
 
 .UpgradeOption > #Desc {
@@ -92,13 +88,26 @@
     padding-bottom: 15px;
     overflow: hidden;
     white-space: normal;
-    font-size: 100%;
+    font-size: 20px;
     -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 rgb(0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=-5376358965234703051&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_2');
+    width: 230px;
+    height: 200px;
 }
 
 #Confirm {
-    width: 15%;
-    height: 10%;
-    font-size: 160%;
-    -unity-font-style: bold;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2051360663148026437&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_60');
+    -unity-font-style: normal;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+    padding-bottom: 15px;
+    width: 128px;
 }

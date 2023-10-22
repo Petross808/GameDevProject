@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
   m_Name: Item_CrystalProtection
   m_EditorClassIdentifier: 
-  _itemName: Reinforcements
-  _itemDescription: The Crystal takes less damage.
+  _itemName: Spaceship Armor
+  _itemDescription: 'The Spaceship takes less damage
+
+'
   _entityModifier: EM_CrystalProtection

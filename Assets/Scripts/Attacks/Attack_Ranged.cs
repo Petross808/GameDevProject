@@ -25,7 +25,7 @@ public class Attack_Ranged : MonoBehaviour, IAttack
         _cdTimer = 0;
     }
 
-    public void Attack(Transform aim)
+    public bool Attack(Transform aim)
     {
         if (_cdTimer <= 0)
         {
@@ -35,7 +35,9 @@ public class Attack_Ranged : MonoBehaviour, IAttack
                 p.Setup(GetComponent<Hitbox>(), aim.position, aim.rotation);
             }
             _cdTimer = _cooldown;
+            return true;
         }
+        return false;
     }
 
     public void CooldownTick()

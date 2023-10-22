@@ -55,7 +55,15 @@ public class EntityCombat : MonoBehaviour
 
     public void UseAttack(AttackSlot slot)
     {
-        _attacks[(int)slot]?.Attack(_aim);
+        if(_attacks[(int)slot] != null)
+        {
+            if (_attacks[(int)slot].Attack(_aim))
+            {
+                AttackData data = new(this, _attacks[(int)slot], slot);
+                this.RaiseEvent<AttackData>(OnEntityAttack, data);
+                this.RaiseEvent<AttackData>(OnAnyEntityAttack, data);
+            }
+        }
     }
 
     void Update()
@@ -65,4 +73,7 @@ public class EntityCombat : MonoBehaviour
             attack?.CooldownTick();
         }
     }
+
+    public event EventHandler<AttackData> OnEntityAttack;
+    public static event EventHandler<AttackData> OnAnyEntityAttack;
 }

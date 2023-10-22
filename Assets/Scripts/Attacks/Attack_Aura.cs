@@ -32,11 +32,12 @@ public class Attack_Aura : MonoBehaviour, IAttack
         _cdTimer = 0;
     }
 
-    public void Attack(Transform aim)
+    public bool Attack(Transform aim)
     {
         _collider.enabled = true;
         _activeTimer = _attackTime;
         _cdTimer = _cooldown;
+        return true;
     }
 
     void Update()

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Item_FieryPresence
   m_EditorClassIdentifier: 
   _itemName: Fiery Presence
-  _itemDescription: 'New aura: Deal damage to nearby enemies.'
+  _itemDescription: '-New Aura-
+
+    Deal damage to nearby enemies'
   _entityModifier: EM_FieryPresence

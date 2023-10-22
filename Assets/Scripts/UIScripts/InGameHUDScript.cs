@@ -11,6 +11,7 @@ public class InGameHUDLogic : MonoBehaviour
     private ProgressBar _healthBar;
     private VisualElement _xpBar;
     private Label _timer;
+    private VisualElement[] _cooldownIcons;
 
     void Awake()
     {
@@ -26,6 +27,38 @@ public class InGameHUDLogic : MonoBehaviour
 
         _healthBar.value = 100;
         _xpBar.style.width = Length.Percent(0);
+
+
+        _cooldownIcons = new VisualElement[]
+        {
+            _document.rootVisualElement.Q("FillPrimary") as VisualElement,
+            _document.rootVisualElement.Q("FillSecondary") as VisualElement,
+            _document.rootVisualElement.Q("FillUtility") as VisualElement,
+        };
+
+        EntityCombat.OnAnyEntityAttack += UpdateCooldowns;
+
+
+    }
+
+    private void UpdateCooldowns(object sender, AttackData e)
+    {
+        if (e.EntityCombat.gameObject.CompareTag("Player") &&
+            e.Slot != EntityCombat.AttackSlot.AURA)
+        {
+
+            StartCoroutine(UpdateCooldownIcon((int) e.Slot, e.Attack.Cooldown));
+        }
+    }
+
+    private IEnumerator UpdateCooldownIcon(int slot, float cooldown)
+    {
+        _cooldownIcons[slot].style.opacity = 100;
+        for (int i = 0; i < 30; i++)
+        {
+            _cooldownIcons[slot].style.width = 18 + i;
+            yield return new WaitForSeconds(cooldown/30);
+        }
     }
 
     private void UpdateXPBar(object sender, EventArgs e)
@@ -58,5 +91,6 @@ public class InGameHUDLogic : MonoBehaviour
         EntityHealth.OnAfterAnyEntityHeal -= UpdateHealthbar;
         GameState.OnGameSecondPassed -= UpdateTimer;
         EntityLeveling.OnAfterAnyEntityGainXP -= UpdateXPBar;
+        EntityCombat.OnAnyEntityAttack -= UpdateCooldowns;
     }
 }

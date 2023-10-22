@@ -1,6 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Stylesheets/InGameHUDStylesheet.uss?fileID=7433441132597879392&amp;guid=869678d3047d0c94e864bdb91de41526&amp;type=3#InGameHUDStylesheet" />
     <ui:VisualElement name="XpBar" />
-    <ui:ProgressBar value="60" title="Crystal Health" name="CrystalHealth" />
+    <ui:ProgressBar value="60" title="Spaceship Health" name="CrystalHealth" />
     <ui:Label tabindex="-1" text="00:00" display-tooltip-when-elided="true" name="Timer" />
+    <ui:VisualElement name="SkillWrapper" style="background-image: url(&apos;project://database/Assets/Sprites/GUI.png?fileID=2020845106392875415&amp;guid=88d4d79bc5d0e8c48b474e21f3d7913a&amp;type=3#GUI_24&apos;); background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="Primary" class="Skill" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); opacity: 1;">
+            <ui:VisualElement name="FillPrimary">
+                <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Sprites/Icons/sword1.png?fileID=6914154902746628804&amp;guid=18b139c124c445a4491465d2551f9ad8&amp;type=3#sword1_0&apos;); width: 32px; height: 32px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Secondary" class="Skill" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="FillSecondary">
+                <ui:VisualElement name="Icon" style="background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Sprites/Icons/magic%20wand.png?fileID=-4278020679779618854&amp;guid=f99f13ba414201045b6ca3ece9db20b0&amp;type=3#magic wand_0&apos;); width: 32px; height: 32px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Utility" class="Skill" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="FillUtility">
+                <ui:VisualElement name="Icon" style="background-image: url(&apos;project://database/Assets/Sprites/Icons/thunder1.png?fileID=-8080631937122002824&amp;guid=5a4b68de7cfef3f4fb0f5ee170af62d4&amp;type=3#thunder1_0&apos;); width: 32px; height: 32px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

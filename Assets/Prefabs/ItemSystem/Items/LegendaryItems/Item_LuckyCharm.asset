@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item_LuckyCharm
   m_EditorClassIdentifier: 
   _itemName: Lucky Charm
-  _itemDescription: Double all gained XP.
+  _itemDescription: Double all gained XP
   _entityModifier: EM_DoubleXP

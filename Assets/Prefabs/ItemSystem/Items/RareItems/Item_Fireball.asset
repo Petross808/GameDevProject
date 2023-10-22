@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Item_Fireball
   m_EditorClassIdentifier: 
   _itemName: Fireball
-  _itemDescription: 'New secondary skill: Small high damage projectile'
+  _itemDescription: '-New Secondary-
+
+    Small damaging projectile'
   _entityModifier: EM_Fireball

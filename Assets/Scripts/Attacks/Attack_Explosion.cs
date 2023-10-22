@@ -24,7 +24,7 @@ public class Attack_Explosion : MonoBehaviour, IAttack
         Destroy(this.gameObject, _cooldown);
     }
 
-    public void Attack(Transform aim)
+    public bool Attack(Transform aim)
     {
         throw new System.NotImplementedException();
     }

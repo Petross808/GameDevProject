@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
   m_Name: Item_CrystalHeal
   m_EditorClassIdentifier: 
-  _itemName: Crystal Heal
-  _itemDescription: Heals 25% of the Crystal's health.
+  _itemName: Repairs
+  _itemDescription: Heal 25% of the Spaceship's health
   _entityModifier: EM_CrystalHeal

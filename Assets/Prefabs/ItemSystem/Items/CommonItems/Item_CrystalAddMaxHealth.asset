@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
   m_Name: Item_CrystalAddMaxHealth
   m_EditorClassIdentifier: 
-  _itemName: Crystal Max Health
-  _itemDescription: Increases the Crystal's max health.
+  _itemName: Reinforcements
+  _itemDescription: Increase Max Health of the Spaceship
   _entityModifier: EM_CrystalAddMaxHealth

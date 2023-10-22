@@ -43,6 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 466200287
+  - name: AlwaysLit
+    uniqueID: 3192237223
     locked: 0

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
   m_Name: Item_Flamethrower
   m_EditorClassIdentifier: 
-  _itemName: Dragon's Breath
-  _itemDescription: 'New primary skill: Fire breath.'
+  _itemName: Flamethrower
+  _itemDescription: '-New Primary-
+
+    Flamethrower'
   _entityModifier: EM_Flamethrower

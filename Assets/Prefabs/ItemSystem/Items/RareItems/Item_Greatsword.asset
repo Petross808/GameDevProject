@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Item_Greatsword
   m_EditorClassIdentifier: 
   _itemName: Greatsword
-  _itemDescription: 'New primary skill: Wide slow high damage swing'
+  _itemDescription: '-New Primary-
+
+    Slow high damage swing'
   _entityModifier: EM_Greatsword

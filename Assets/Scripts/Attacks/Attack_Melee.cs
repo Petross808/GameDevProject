@@ -29,7 +29,7 @@ public class Attack_Melee: MonoBehaviour, IAttack
         _cdTimer = 0;
     }
 
-    public void Attack(Transform aim)
+    public bool Attack(Transform aim)
     {
         if(_cdTimer <= 0)
         {
@@ -37,7 +37,9 @@ public class Attack_Melee: MonoBehaviour, IAttack
             transform.SetPositionAndRotation(aim.position, aim.rotation);
             _activeTimer = _attackTime;
             _cdTimer = _cooldown;
+            return true;
         }
+        return false;
     }
 
     void Update()

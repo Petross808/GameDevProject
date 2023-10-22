@@ -10,6 +10,6 @@ public interface IAttack
 
     bool IsHealing { get; set; }
 
-    void Attack(Transform aim);
+    bool Attack(Transform aim);
     void CooldownTick();
 }

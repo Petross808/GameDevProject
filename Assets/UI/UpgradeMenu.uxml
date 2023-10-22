@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Stylesheets/UpgradeMenuStylesheet.uss?fileID=7433441132597879392&amp;guid=e94f5cf5ee3efb545a5bf0624ad4b44d&amp;type=3#UpgradeMenuStylesheet" />
     <ui:VisualElement name="Background">
-        <ui:Label tabindex="-1" text="Level Up" display-tooltip-when-elided="true" name="UpgradeMenuTitle" />
+        <ui:Label text="Level Up" name="UpgradeMenuTitle" />
         <ui:VisualElement name="UpgradeInnerFlex">
             <ui:VisualElement name="UpgradeOption1" class="UpgradeOption">
                 <ui:VisualElement name="Sprite" />
@@ -19,6 +19,6 @@
                 <ui:Label tabindex="-1" text="ItemDescription" display-tooltip-when-elided="true" name="Desc" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="Confirm" />
+        <ui:Label tabindex="-1" text="Confirm" display-tooltip-when-elided="true" name="Confirm" />
     </ui:VisualElement>
 </ui:UXML>

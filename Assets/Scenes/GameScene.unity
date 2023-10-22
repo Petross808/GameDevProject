@@ -27325,10 +27325,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000dfa6c91b
+  m_ApplyToSortingLayers: a7ac45be
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -27441,6 +27441,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2296440952278574376, guid: ce1e06ea4dc02de40acc3e69c4909395, type: 3}
   m_PrefabInstance: {fileID: 7495748741127315009}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1121950762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121950755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f14d3e756101e47908da7a9fa20c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnSound: {fileID: 8300000, guid: 73215995f5944f74fb4c233d14280f9b, type: 3}
+  _receiveDamageSound: {fileID: 0}
+  _swingSound: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!1 &1310418375
 GameObject:
   m_ObjectHideFlags: 0
@@ -27825,7 +27841,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2296440952278574376, guid: ce1e06ea4dc02de40acc3e69c4909395, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1121950762}
   m_SourcePrefab: {fileID: 100100000, guid: ce1e06ea4dc02de40acc3e69c4909395, type: 3}
 --- !u!156049354 &7708213470750120994
 Grid:

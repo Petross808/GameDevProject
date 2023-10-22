@@ -18,10 +18,11 @@ public class UpgradeMenuScript : MonoBehaviour
     private VisualElement _root;
     private VisualElement[] _upgradeOptions;
     private ItemSO[] _items;
+    private Color[] _rarities;
 
     private ItemSO _currentChoice;
     private EntityInventory _currentInventory;
-    private Button _confirm;
+    private Label _confirm;
 
 
     void Awake()
@@ -35,7 +36,7 @@ public class UpgradeMenuScript : MonoBehaviour
             _root.Q<VisualElement>("UpgradeOption3")
         };
 
-        _confirm = _root.Q<Button>("Confirm");
+        _confirm = _root.Q<Label>("Confirm");
 
         EntityLeveling.OnAnyEntityLevelUp += ShowUpgradeUI;
 
@@ -65,18 +66,22 @@ public class UpgradeMenuScript : MonoBehaviour
     private void GetRandomItems()
     {
         _items = new ItemSO[3];
+        _rarities = new Color[3];
         for (int i = 0; i < 3; i++)
         {
             switch(UnityEngine.Random.Range(0, 100))
             {
                 case 0:
                     _items[i] = _legendaryItemPool.GetRandomItem(_items);
+                    _rarities[i] = Color.yellow;
                     break;
                 case <= 10:
                     _items[i] = _rareItemPool.GetRandomItem(_items);
+                    _rarities[i] = Color.cyan;
                     break;
                 default:
                     _items[i] = _commonItemPool.GetRandomItem(_items);
+                    _rarities[i] = Color.green;
                     break;
             }
         }
@@ -93,6 +98,7 @@ public class UpgradeMenuScript : MonoBehaviour
             if (_items[i] != null)
             {
                 name.text = _items[i].ItemName;
+                name.style.color = _rarities[i];
                 description.text = _items[i].ItemDescription;
             }
         }
@@ -102,9 +108,9 @@ public class UpgradeMenuScript : MonoBehaviour
     {
         foreach(var uo in _upgradeOptions)
         {
-            SetBorderColor(uo, Color.black);
+            SetBorderColor(uo, 0);
         }
-        SetBorderColor(_upgradeOptions[index], Color.yellow);
+        SetBorderColor(_upgradeOptions[index], 5);
 
         _currentChoice = _items[index];
         _confirm.SetEnabled(true);
@@ -120,19 +126,19 @@ public class UpgradeMenuScript : MonoBehaviour
 
         foreach (var uo in _upgradeOptions)
         {
-            SetBorderColor(uo, Color.black);
+            SetBorderColor(uo, 0);
         }
         _currentChoice = null;
         _confirm.SetEnabled(false);
         _root.visible = false;
     }
 
-    private void SetBorderColor(VisualElement ve, Color color) 
+    private void SetBorderColor(VisualElement ve, int value) 
     {
-        ve.style.borderBottomColor = color;
-        ve.style.borderTopColor = color;
-        ve.style.borderLeftColor = color;
-        ve.style.borderRightColor = color;
+        ve.style.borderBottomWidth = value;
+        ve.style.borderTopWidth = value;
+        ve.style.borderLeftWidth = value;
+        ve.style.borderRightWidth = value;
     }
 
     private void OnDestroy()

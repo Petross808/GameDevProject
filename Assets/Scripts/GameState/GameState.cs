@@ -86,6 +86,7 @@ public class GameState : MonoBehaviour
     {
         if(data.DamageReceiver.transform.root.CompareTag("Crystal"))
         {
+            Time.timeScale = 0;
             this.RaiseEvent(OnGameEnd);
         }
     }
@@ -94,6 +95,7 @@ public class GameState : MonoBehaviour
     {
         if(_gameSeconds == 600)
         {
+            Time.timeScale = 0;
             this.RaiseEvent(OnGameWon);
         }
     }
