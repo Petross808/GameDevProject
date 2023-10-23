@@ -20,9 +20,10 @@ public class EM_Retaliate : MonoBehaviour, IEntityModifier
         EntityHealth.OnAnyEntityHit += Retaliate;
     }
 
+    // When the ship gets hit, deal 25% of the damage times _amount to the source
     private void Retaliate(object sender, HitData e)
     {
-        if(e.DamageReceiver.gameObject.CompareTag("Crystal"))
+        if(e.DamageReceiver.gameObject.CompareTag("Ship"))
         {
             if(e.DamageSource.transform.root.TryGetComponent<EntityHealth>(out EntityHealth sourceHealth))
             {

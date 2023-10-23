@@ -21,11 +21,13 @@ public class EntityAnimation : MonoBehaviour
         _entityMovement.OnEntityStop += IdleAnimation;
     }
 
+    // When this entity stops moving, set the animator boolean running to false
     private void IdleAnimation(object sender, EventArgs e)
     {
         _animator.SetBool("Running", false);
     }
 
+    // When this entity starts moving, set the animator boolean running to true and flip the sprite if it's moving left
     private void RunAnimation(object sender, Vector2 dir)
     {
         _animator.SetBool("Running", true);

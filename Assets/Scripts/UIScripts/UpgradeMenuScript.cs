@@ -24,7 +24,7 @@ public class UpgradeMenuScript : MonoBehaviour
     private EntityInventory _currentInventory;
     private Label _confirm;
 
-
+    // Initialize variables and register events, then hide the UI
     void Awake()
     {
         _document = GetComponent<UIDocument>();
@@ -39,16 +39,15 @@ public class UpgradeMenuScript : MonoBehaviour
         _confirm = _root.Q<Label>("Confirm");
 
         EntityLeveling.OnAnyEntityLevelUp += ShowUpgradeUI;
-
-        _upgradeOptions[0].RegisterCallback<ClickEvent>((_)=> ChooseUpgrade(0));
-        _upgradeOptions[1].RegisterCallback<ClickEvent>((_) => ChooseUpgrade(1));
-        _upgradeOptions[2].RegisterCallback<ClickEvent>((_) => ChooseUpgrade(2));
-
+        _upgradeOptions[0].RegisterCallback<ClickEvent>(ChooseFirst);
+        _upgradeOptions[1].RegisterCallback<ClickEvent>(ChooseSecond);
+        _upgradeOptions[2].RegisterCallback<ClickEvent>(ChooseThird);
         _confirm.RegisterCallback<ClickEvent>(ConfirmChoice);
 
         _root.visible = false;
     }
 
+    // When the Player levels up, load random items and show the UI
     private void ShowUpgradeUI(object sender, int e)
     {
         if (sender is EntityLeveling el &&
@@ -63,6 +62,7 @@ public class UpgradeMenuScript : MonoBehaviour
         }
     }
 
+    // Fill the arrays with random items and save colors based on their rarities
     private void GetRandomItems()
     {
         _items = new ItemSO[3];
@@ -87,6 +87,7 @@ public class UpgradeMenuScript : MonoBehaviour
         }
     }
 
+    // Load names and descriptions of the items, change the color of the names to match their rarities
     private void LoadItems()
     {
         GetRandomItems();
@@ -104,6 +105,7 @@ public class UpgradeMenuScript : MonoBehaviour
         }
     }
 
+    // When an item is clicked, highlight it, save the choice and enable the confirm button
     private void ChooseUpgrade(int index)
     {
         foreach(var uo in _upgradeOptions)
@@ -116,6 +118,11 @@ public class UpgradeMenuScript : MonoBehaviour
         _confirm.SetEnabled(true);
     }
 
+    private void ChooseFirst(ClickEvent e) { ChooseUpgrade(0); }
+    private void ChooseSecond(ClickEvent e) { ChooseUpgrade(1); }
+    private void ChooseThird(ClickEvent e) { ChooseUpgrade(2); }
+
+    // When confirm is clicked, add the selected item into the inventory, reset all highlights and hide the UI
     private void ConfirmChoice(ClickEvent evt)
     {
         if(_currentInventory != null &&
@@ -133,6 +140,7 @@ public class UpgradeMenuScript : MonoBehaviour
         _root.visible = false;
     }
 
+    // Set border color of a visual element
     private void SetBorderColor(VisualElement ve, int value) 
     {
         ve.style.borderBottomWidth = value;
@@ -144,5 +152,10 @@ public class UpgradeMenuScript : MonoBehaviour
     private void OnDestroy()
     {
         EntityLeveling.OnAnyEntityLevelUp -= ShowUpgradeUI;
+
+        _upgradeOptions[0].UnregisterCallback<ClickEvent>(ChooseFirst);
+        _upgradeOptions[1].UnregisterCallback<ClickEvent>(ChooseSecond);
+        _upgradeOptions[2].UnregisterCallback<ClickEvent>(ChooseThird);
+        _confirm.UnregisterCallback<ClickEvent>(ConfirmChoice);
     }
 }

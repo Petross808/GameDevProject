@@ -17,6 +17,7 @@ public class EM_ExplodeOnKill : MonoBehaviour, IEntityModifier
         _amount++;
     }
 
+    // If this entity has EntityCombat, save it's hitmask and register OnAnyEntityDeath event
     void Start()
     {
         _explosion = Resources.Load<Transform>("Explosion");
@@ -28,12 +29,16 @@ public class EM_ExplodeOnKill : MonoBehaviour, IEntityModifier
         }
     }
 
+    // When entity dies, if it was killed by this entity, spawn an explosion and inject proper Hitmask and Damage to the power of _amount into it
     private void SpawnExplosion(object sender, HitData e)
     {
         if(e.DamageSource.transform.root == transform.root)
         {
             Transform instance = Instantiate(_explosion, e.DamageReceiver.transform.position, e.DamageReceiver.transform.rotation);
-            instance.GetComponent<IAttack>().HitMask = _hitMask;
+            IAttack explosionAttack = instance.GetComponent<IAttack>();
+            explosionAttack.HitMask = _hitMask;
+            explosionAttack.Damage = (int )Mathf.Pow(explosionAttack.Damage, _amount);
+            
         }
     }
 

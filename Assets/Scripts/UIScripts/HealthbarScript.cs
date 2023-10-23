@@ -9,6 +9,7 @@ public class HealthbarScript : MonoBehaviour
 
     private EntityHealth _entityHealth;
 
+    // If object has EntityHealth, register events
     void Awake()
     {
         gameObject.SetActive(false);
@@ -20,6 +21,7 @@ public class HealthbarScript : MonoBehaviour
         }
     }
 
+    // When health of the entity changes, set Health Bar to active and update it's value, if full health, hide it again
     private void UpdateHealthBar(object sender, object args)
     {
         if (!gameObject.activeSelf)

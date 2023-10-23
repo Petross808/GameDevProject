@@ -18,7 +18,7 @@ public class Attack_Explosion : MonoBehaviour, IAttack
     public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
 
-    // Start is called before the first frame update
+    // Destroy self when cooldown ends
     void Start()
     {
         Destroy(this.gameObject, _cooldown);

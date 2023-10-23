@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EM_CrystalProtection : MonoBehaviour, IEntityModifier
+public class EM_ShipProtection : MonoBehaviour, IEntityModifier
 {
 
     private int _amount = 1;
@@ -16,12 +16,13 @@ public class EM_CrystalProtection : MonoBehaviour, IEntityModifier
 
     void Start()
     {
-        EntityHealth.OnAnyEntityHit += ReduceCrystalDamage;
+        EntityHealth.OnAnyEntityHit += ReduceShipDamage;
     }
 
-    private void ReduceCrystalDamage(object sender, HitData e)
+    // If the ship gets hit, multiply the damage received by 0.9 to the power of _amount
+    private void ReduceShipDamage(object sender, HitData e)
     {
-        if(e.DamageReceiver.gameObject.CompareTag("Crystal"))
+        if(e.DamageReceiver.gameObject.CompareTag("Ship"))
         {
             e.DamageDealt = Mathf.CeilToInt(e.DamageDealt * Mathf.Pow(0.9f, _amount));
         }
@@ -29,6 +30,6 @@ public class EM_CrystalProtection : MonoBehaviour, IEntityModifier
 
     void OnDestroy()
     {
-        
+        EntityHealth.OnAnyEntityHit -= ReduceShipDamage;
     }
 }

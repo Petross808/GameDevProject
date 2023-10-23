@@ -14,41 +14,69 @@ public class GameState : MonoBehaviour
 
     private Transform _player;
     private IController _playerController;
+    private IController _nullController;
     private GameInput _gameInput;
 
-    [SerializeField]
-    private float _gameTime;
-    private int _gameSeconds;
+    [SerializeField] // Serialized for debug purposes
+    private float _gameTime; // Exact game time
+    private int _gameSeconds; // Game time in seconds
 
+    // Initialize variables, register events, spawn the player and set the camera to follow them, reset timeScale
     void Awake()
     {
         _gameInput = GetComponent<GameInput>();
 
-        EntityLeveling.OnAnyEntityLevelUp += PauseGame;
-        EntityInventory.OnAnyEntityGainItem += ResumeGame;
+        EntityLeveling.OnAnyEntityLevelUp += PauseGameOnLevelUp;
+        EntityInventory.OnAnyEntityGainItem += ResumeGameOnGainItem;
         EntityHealth.OnAnyEntityDeath += GameOver;
 
         SpawnPlayer();
         SetCameraFollowPlayer();
     }
-
-    private void PauseGame(object sender, int e)
-    {
-        Time.timeScale = 0;
-    }
-
-    private void ResumeGame(object sender, ItemSO e)
-    {
-        Time.timeScale = 1f;
-    }
-
+    // Assign controllers and ResumeGame, setting timeScale to 1 and changing GameInput controller to _playerController, then raise OnGameStart event
     private void Start()
     {
         _playerController = _player.GetComponent<PlayerController>();
-        ChangeController(_playerController);
+        _nullController = new NullController();
+        ResumeGame();
         this.RaiseEvent(OnGameStart);
     }
 
+    // Set time scale to 0 and controller to _nullController ignoring all input
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        ChangeController(_nullController);
+    }
+
+    // Set time scale to 1 and controller to _playerContoller accepting all input
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
+        ChangeController(_playerController);
+    }
+
+    // When the player levels up, pause the game
+    private void PauseGameOnLevelUp(object sender, int e)
+    {
+        if(sender is EntityLeveling el &&
+            el.gameObject.CompareTag("Player"))
+        {
+            PauseGame();
+        }
+    }
+
+    // When the player gets an item, resume the game
+    private void ResumeGameOnGainItem(object sender, ItemSO e)
+    {
+        if (sender is EntityInventory el &&
+            el.gameObject.CompareTag("Player"))
+        {
+            ResumeGame();
+        }
+    }
+
+    // Instantiate the player
     private void SpawnPlayer()
     {
         if (_player != null)
@@ -58,6 +86,7 @@ public class GameState : MonoBehaviour
         _player = Instantiate(_playerTemplate);
     }
 
+    // If camera doesn't have a parentConstraint component, add it, then set it to follow the player
     private void SetCameraFollowPlayer()
     {
         ParentConstraint camConstraint;
@@ -74,32 +103,37 @@ public class GameState : MonoBehaviour
         camConstraint.constraintActive = true;
     }
 
+    // Change the controller that receives input
     private void ChangeController(IController controller)
     {
         if(controller != null)
         {
+            _gameInput.Controller?.OnSwitch();
             _gameInput.Controller = controller;
         }
     }
 
+    // When the ship dies, pause the game and raise OnGameEnd event
     public void GameOver(object sender, HitData data)
     {
-        if(data.DamageReceiver.transform.root.CompareTag("Crystal"))
+        if(data.DamageReceiver.transform.root.CompareTag("Ship"))
         {
-            Time.timeScale = 0;
+            PauseGame();
             this.RaiseEvent(OnGameEnd);
         }
     }
 
+    // If the timer reached 10 minutes, pause the game and raise OnGameWon event
     public void CheckGameWon()
     {
         if(_gameSeconds == 600)
         {
-            Time.timeScale = 0;
+            PauseGame();
             this.RaiseEvent(OnGameWon);
         }
     }
 
+    // Increase the game time, if a second passed raise OnGameSecondPassed, then check if game is won
     private void Update()
     {
         _gameTime += Time.deltaTime;
@@ -114,8 +148,8 @@ public class GameState : MonoBehaviour
     private void OnDestroy()
     {
         EntityHealth.OnAnyEntityDeath -= GameOver;
-        EntityLeveling.OnAnyEntityLevelUp -= PauseGame;
-        EntityInventory.OnAnyEntityGainItem -= ResumeGame;
+        EntityLeveling.OnAnyEntityLevelUp -= PauseGameOnLevelUp;
+        EntityInventory.OnAnyEntityGainItem -= ResumeGameOnGainItem;
     }
 
     public static event EventHandler OnGameStart;

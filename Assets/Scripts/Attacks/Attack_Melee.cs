@@ -20,15 +20,11 @@ public class Attack_Melee: MonoBehaviour, IAttack
     public LayerMask HitMask { get => _hitMask; set => _hitMask = value; }
     public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
-    private float _activeTimer;
-    private float _cdTimer;
+    private float _activeTimer = 0;
+    private float _cdTimer = 0;
 
-    void Awake()
-    {
-        _activeTimer = _attackTime;
-        _cdTimer = 0;
-    }
 
+    // If not on cooldown, activate, set proper transform and reset timers
     public bool Attack(Transform aim)
     {
         if(_cdTimer <= 0)
@@ -42,6 +38,7 @@ public class Attack_Melee: MonoBehaviour, IAttack
         return false;
     }
 
+    // If object active, tick down activeTimer and deativate when it reaches zero 
     void Update()
     {
         _activeTimer -= Time.deltaTime;
@@ -51,6 +48,7 @@ public class Attack_Melee: MonoBehaviour, IAttack
         }
     }
 
+    // Tick down cooldown
     public void CooldownTick()
     {
         if (_cdTimer > 0)

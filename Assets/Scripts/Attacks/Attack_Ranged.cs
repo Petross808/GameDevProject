@@ -19,12 +19,9 @@ public class Attack_Ranged : MonoBehaviour, IAttack
     public LayerMask HitMask { get => _hitMask; set => _hitMask = value; }
     public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
-    private float _cdTimer;
-    void Awake()
-    {
-        _cdTimer = 0;
-    }
+    private float _cdTimer = 0;
 
+    // If not on cooldown, spawn projectile and inject transform data and hitbox component, reset cooldown
     public bool Attack(Transform aim)
     {
         if (_cdTimer <= 0)
@@ -40,6 +37,7 @@ public class Attack_Ranged : MonoBehaviour, IAttack
         return false;
     }
 
+    // Tick down cooldown
     public void CooldownTick()
     {
         if (_cdTimer > 0)

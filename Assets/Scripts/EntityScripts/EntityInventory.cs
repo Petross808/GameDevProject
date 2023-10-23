@@ -11,6 +11,7 @@ public class EntityInventory : MonoBehaviour
 
     public List<ItemSO> ItemList { get => _itemList; }
 
+    // Initialize all items that started in the inventory
     void Start()
     {
         foreach(ItemSO item in _itemList)
@@ -19,10 +20,13 @@ public class EntityInventory : MonoBehaviour
         }
     }
 
+    // Raise OnEntityGainItem events, then if this entity doesn't have the item component yet, add it, otherwise call it's AddAnother function
     public void AddItem(ItemSO item)
     {
         this.RaiseEvent<ItemSO>(OnEntityGainItem, item);
         this.RaiseEvent<ItemSO>(OnAnyEntityGainItem, item);
+
+        _itemList.Add(item);
 
         System.Type entityModType = Type.GetType(item.EntityModifier);
 

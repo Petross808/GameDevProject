@@ -8,11 +8,12 @@ using UnityEngine.Windows;
 [RequireComponent(typeof(PlayerInput))]
 public class GameInput : MonoBehaviour
 {
-    private IController _controller;
+    private IController _controller; // Controller that is currently receiving input
     private PlayerInput _playerInput;
 
     public IController Controller { get => _controller; set => _controller = value; }
 
+    // Bind input events to the controller set in _controller
     void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();

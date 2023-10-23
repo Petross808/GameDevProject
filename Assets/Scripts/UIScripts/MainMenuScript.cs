@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     private UIDocument _document;
-    private Button _playButton;
+    private Button _playButton; // Start the game
 
-    void Start()
+    // Initialize variables and register events
+    void Awake()
     {
         _document = GetComponent<UIDocument>();
 
@@ -20,6 +21,7 @@ public class MainMenuScript : MonoBehaviour
         _playButton.RegisterCallback<ClickEvent>(StartGame);
     }
 
+    // When the play button is clicked, switch the scene to the GameScene
     private void StartGame(ClickEvent evt)
     {
         SceneManager.LoadScene("GameScene");

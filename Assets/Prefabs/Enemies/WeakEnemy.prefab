@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2824802406984158696}
   - component: {fileID: 6070716627430578987}
   - component: {fileID: -8623502130652617614}
+  - component: {fileID: 2421507144977630334}
   m_Layer: 7
   m_Name: WeakEnemy
   m_TagString: Untagged
@@ -249,6 +250,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e74d731f5c7aa43a355864b964e474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2421507144977630334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4292c3057bd94eb0cbcf6696691d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpValue: 200
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0

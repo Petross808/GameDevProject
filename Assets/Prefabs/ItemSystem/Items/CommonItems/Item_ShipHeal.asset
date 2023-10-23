@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
-  m_Name: Item_CrystalProtection
+  m_Name: Item_ShipHeal
   m_EditorClassIdentifier: 
-  _itemName: Spaceship Armor
-  _itemDescription: 'The Spaceship takes less damage
-
-'
-  _entityModifier: EM_CrystalProtection
+  _itemName: Repairs
+  _itemDescription: Heal 25% of the Spaceship's health
+  _entityModifier: EM_ShipHeal

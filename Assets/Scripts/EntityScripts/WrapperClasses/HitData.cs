@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Data class for OnEntityHit events
 public class HitData
 {
-    private int _damageDealt;
-    private EntityHealth _receiver;
-    private Hitbox _source;
+    private int _damageDealt; // Amount of damage dealt
+    private EntityHealth _receiver; // EntityHealth that received the damage
+    private Hitbox _source; // Hitbox that dealt the damage
     public HitData(int damage, Hitbox source, EntityHealth receiver)
     {
         _damageDealt = damage;

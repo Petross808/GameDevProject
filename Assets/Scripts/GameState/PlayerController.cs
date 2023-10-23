@@ -10,15 +10,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, IController
 {
     [SerializeField]
-    private Transform _aim;
+    private Transform _aim; // Aim child object
 
     private EntityCombat _attackManager;
     private EntityMovement _movement;
-    private Vector2 _mousePosition;
+    private Vector2 _mousePosition; // Position of the mouse pointer on the screen
 
-    private bool _lmbHeld;
-    private bool _rmbHeld;
-    private bool _spaceHeld;
+    private bool _lmbHeld; // Is left mouse button down
+    private bool _rmbHeld; // Is right mouse button down
+    private bool _spaceHeld; // Is spacebar down
 
     void Awake()
     {
@@ -71,6 +71,16 @@ public class PlayerController : MonoBehaviour, IController
         _spaceHeld = false;
     }
 
+    // Reset state on switch
+    public void OnSwitch()
+    {
+        _movement.MoveEnd();
+        _lmbHeld = false;
+        _spaceHeld = false;
+        _rmbHeld= false;
+    }
+
+    // Rotate aim towards the mouse pointer every frame and try to use attacks when the corresponding button is held
     private void Update()
     {
         _aim.transform.up = (Vector2)Camera.main.ScreenToWorldPoint(_mousePosition) - (Vector2)transform.position;

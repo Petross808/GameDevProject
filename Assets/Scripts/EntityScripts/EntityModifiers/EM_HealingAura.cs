@@ -14,10 +14,16 @@ public class EM_HealingAura : MonoBehaviour, IEntityModifier
     {
         _amount++;
     }
-
-    void Start()
+    
+    // Load the attack
+    void Awake()
     {
         _attack = Resources.Load<Transform>("HealingAura");
+    }
+
+    // Register the attack in the EntityCombat to an Aura slot
+    void Start()
+    {
         if (TryGetComponent<EntityCombat>(out EntityCombat ec))
         {
             _attackData = ec.RegisterAttack(EntityCombat.AttackSlot.AURA, _attack);

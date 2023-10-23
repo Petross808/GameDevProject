@@ -23,6 +23,7 @@ public class EM_DoubleXP : MonoBehaviour, IEntityModifier
         }
     }
 
+    // If this entity gains XP, multiply it by 2 * _amount
     private void DoubleXp(object sender, XPData e)
     {
         e.XpAmount *= (2 * _amount);

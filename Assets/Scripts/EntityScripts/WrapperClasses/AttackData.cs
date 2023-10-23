@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Data class for OnEntityAttack events
 public class AttackData
 {
-    private EntityCombat _entityCombat;
-    private IAttack _attack;
-    private EntityCombat.AttackSlot _slot;
+    private EntityCombat _entityCombat; // EntityCombat that raised the event
+    private IAttack _attack; // Attack that was used
+    private EntityCombat.AttackSlot _slot; // Attack slot that was used
     public AttackData(EntityCombat user, IAttack attack, EntityCombat.AttackSlot slot)
     {
         _entityCombat = user;

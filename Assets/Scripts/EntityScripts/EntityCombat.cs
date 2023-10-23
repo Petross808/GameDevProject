@@ -8,14 +8,14 @@ using UnityEngine;
 public class EntityCombat : MonoBehaviour
 {
     [SerializeField]
-    private Transform _baseAttackTemplate;
+    private Transform _baseAttackTemplate; // Default Primary attack
     [SerializeField]
-    private Transform _aim;
+    private Transform _aim; // Entity aim child object
     [SerializeField]
-    private LayerMask _attackHitMask;
+    private LayerMask _attackHitMask; // What should attacks collide with
 
-    private IAttack[] _attacks;
-    private List<IAttack> _auras;
+    private IAttack[] _attacks; // Main three attack slots (Primary, Secondary, Utility)
+    private List<IAttack> _auras; // Aura slots
 
     public LayerMask AttackHitMask { get => _attackHitMask; }
 
@@ -27,6 +27,7 @@ public class EntityCombat : MonoBehaviour
         AURA = 3
     }
 
+    // Initialize variables and register default primary attack
     void Awake()
     {
         _attacks = new IAttack[3];
@@ -34,6 +35,7 @@ public class EntityCombat : MonoBehaviour
         RegisterAttack(AttackSlot.PRIMARY, _baseAttackTemplate);
     }
 
+    // Instantiate provided attack prefab as a child of this gameObject, add it's IAttack component to the appropriate list and inject a hitmask into it, then return the IAttack component
     public IAttack RegisterAttack(AttackSlot slot, Transform attackToRegister)
     {
         Transform attackTransform = Instantiate(attackToRegister, transform, false);
@@ -53,6 +55,7 @@ public class EntityCombat : MonoBehaviour
         return attack;
     }
 
+    // Call the Attack function of the attack in the provided attack slot, if attack was successful, raise OnEntityAttack events
     public void UseAttack(AttackSlot slot)
     {
         if(_attacks[(int)slot] != null)
@@ -66,6 +69,7 @@ public class EntityCombat : MonoBehaviour
         }
     }
 
+    // Tick down cooldowns of all attacks in the attack slots (Update doesn't run in disabled objects)
     void Update()
     {
         foreach (var attack in _attacks)

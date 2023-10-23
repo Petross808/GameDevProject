@@ -18,6 +18,7 @@ public class EntityHealth : MonoBehaviour
         _health = _maxHealth;
     }
 
+    // Raise OnEntityHit to allow subscribers to modify the damage amount, then lower health by amount, then raise OnAfterEntityHit, then if health below zero, call Die
     public virtual void ReceiveDamage(int amount, Hitbox source)
     {
         HitData hitData = new HitData(amount, source, this);
@@ -37,6 +38,7 @@ public class EntityHealth : MonoBehaviour
 
     }
 
+    // Add amount to current health, can't exceed max health, raise OnAfterEntityHeal
     public virtual void Heal(int amount)
     {
         _health = (_health + amount) > _maxHealth ? _maxHealth : _health + amount;
@@ -44,6 +46,7 @@ public class EntityHealth : MonoBehaviour
         this.RaiseEvent(OnAfterAnyEntityHeal);
     }
 
+    // Set max health to the provided value, if health exceeds max health, lower it to match
     public virtual void SetMaxHealth(int value)
     {
         _maxHealth = (value > 0) ? value : 1;
@@ -54,6 +57,7 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
+    // If damage source is valid, raise OnDeath events, then Destroy this object
     public virtual void Die(HitData lastHit)
     {
         if(lastHit.DamageSource != null)

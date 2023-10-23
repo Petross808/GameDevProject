@@ -9,32 +9,33 @@ using UnityEngine;
 public class AILogic : MonoBehaviour
 {
     [SerializeField]
-    private float _range;
+    private float _range; // Enemy attack range
     [SerializeField]
-    private Transform _aim;
+    private Transform _aim; // Enemy aim child object
     [SerializeField]
-    private GameObject _target;
+    private GameObject _target; // Target for the enemy to follow
 
-    private EntityMovement _movement;
-    private EntityCombat _attackManager;
+    private EntityMovement _movement; // Movement component
+    private EntityCombat _combat; // Combat component
 
-    public GameObject Target { get => _target; set => _target = value; }
+    public GameObject Target { get => _target; set => _target = value; } // Exposing Target property to allow EnemySpawners to inject a target at runtime
 
     private void Awake()
     {
         _movement = GetComponent<EntityMovement>();
-        _attackManager = GetComponent<EntityCombat>();
+        _combat = GetComponent<EntityCombat>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(_target == null)
+        // if target is not defined, stand still
+        if (_target == null)
         {
             _movement.MoveEnd();
             return;
         }
 
+        // if target is in range, attack it, else move towards it
         if (Vector2.Distance(transform.position, _target.transform.position) < _range)
         {
             AttackTarget();
@@ -45,15 +46,17 @@ public class AILogic : MonoBehaviour
         }
     }
 
+    // Move in the direction of the target
     void MoveTowardsTarget()
     {
         _movement.MoveStart(Vector3.Normalize(_target.transform.position - transform.position));
     }
 
+    // Stand still, aim at the target and try to attack
     void AttackTarget()
     {
         _movement.MoveEnd();
         _aim.transform.up = (Vector2)_target.transform.position - (Vector2)transform.position;
-        _attackManager.UseAttack(EntityCombat.AttackSlot.PRIMARY);
+        _combat.UseAttack(EntityCombat.AttackSlot.PRIMARY);
     }
 }

@@ -18,6 +18,7 @@ public class EM_DamageUp : MonoBehaviour, IEntityModifier
         EntityHealth.OnAnyEntityHit += AddDamageMultiplier;
     }
 
+    // If any entity gets hit by this gameObject, increase the damage by 0.2 * _amount
     private void AddDamageMultiplier(object sender, HitData e)
     {
         if(e.DamageSource?.transform.root == transform.root)
@@ -25,7 +26,6 @@ public class EM_DamageUp : MonoBehaviour, IEntityModifier
             e.DamageDealt = Mathf.CeilToInt(e.DamageDealt * (1 + (0.2f * _amount)));
         }
     }
-
 
     void OnDestroy() 
     {

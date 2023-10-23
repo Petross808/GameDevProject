@@ -9,7 +9,6 @@ public class Attack_Aura : MonoBehaviour, IAttack
     private int _damage = 10;
     [SerializeField]
     private float _cooldown = 0.3f;
-
     [SerializeField]
     private bool _isHealing = false;
 
@@ -22,16 +21,15 @@ public class Attack_Aura : MonoBehaviour, IAttack
     public LayerMask HitMask { get => _hitMask; set => _hitMask = value; }
     public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
-    private float _activeTimer;
-    private float _cdTimer;
+    private float _activeTimer = 0;
+    private float _cdTimer = 0;
 
     void Awake()
     {
         _collider = GetComponent<Collider2D>();
-        _activeTimer = _attackTime;
-        _cdTimer = 0;
     }
 
+    // Enable collider and reset timers
     public bool Attack(Transform aim)
     {
         _collider.enabled = true;
@@ -40,6 +38,7 @@ public class Attack_Aura : MonoBehaviour, IAttack
         return true;
     }
 
+    // Tick down timers, disable collider when active timer ends
     void Update()
     {
         _activeTimer -= Time.deltaTime;
@@ -50,6 +49,7 @@ public class Attack_Aura : MonoBehaviour, IAttack
         }
     }
 
+    // Tick down cooldown, call attack when cooldown ends
     public void CooldownTick()
     {
         if (_cdTimer > 0)
