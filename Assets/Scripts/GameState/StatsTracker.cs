@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class StatsTracker : MonoBehaviour
 {
+    [SerializeField]
+    private GameState _gameState;
+
     private int _gameTime = 0;  // Time survived
     private int _playerLevel= 1; // Player level
     private int _enemiesKilled = 0; // Enemies killed
@@ -19,7 +22,7 @@ public class StatsTracker : MonoBehaviour
 
     void Start()
     {
-        GameState.OnGameSecondPassed += UpdateTime;
+        _gameState.OnGameSecondPassed += UpdateTime;
         EntityLeveling.OnAnyEntityLevelUp += PlayerLevelUp;
         EntityHealth.OnAnyEntityDeath += EnemyKilled;
         EntityHealth.OnAfterAnyEntityHit += EnemyReceivedDamage;
@@ -73,7 +76,7 @@ public class StatsTracker : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameState.OnGameSecondPassed -= UpdateTime;
+        _gameState.OnGameSecondPassed -= UpdateTime;
         EntityLeveling.OnAnyEntityLevelUp -= PlayerLevelUp;
         EntityHealth.OnAnyEntityDeath -= EnemyKilled;
         EntityHealth.OnAfterAnyEntityHit -= EnemyReceivedDamage;

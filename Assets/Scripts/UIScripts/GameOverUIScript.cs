@@ -11,6 +11,8 @@ using UnityEngine.UIElements;
 public class GameOverUIScript : MonoBehaviour
 {
     [SerializeField]
+    private GameState _gameState;
+    [SerializeField]
     private StatsTracker _stats;
 
     private UIDocument _document;
@@ -37,7 +39,7 @@ public class GameOverUIScript : MonoBehaviour
 
 
         _menuButton.RegisterCallback<ClickEvent>(BackToMenu);
-        GameState.OnGameEnd += ShowUI;
+        _gameState.OnGameEnd += ShowUI;
 
         _document.rootVisualElement.visible = false;
     }
@@ -64,7 +66,7 @@ public class GameOverUIScript : MonoBehaviour
     private void OnDestroy()
     {
         _menuButton.UnregisterCallback<ClickEvent>(BackToMenu);
-        GameState.OnGameEnd -= ShowUI;
+        _gameState.OnGameEnd -= ShowUI;
     }
 
 }

@@ -10,9 +10,8 @@ using UnityEngine.Rendering;
 public class GameState : MonoBehaviour
 {
     [SerializeField]
-    private Transform _playerTemplate;
-
     private Transform _player;
+
     private IController _playerController;
     private IController _nullController;
     private GameInput _gameInput;
@@ -21,7 +20,7 @@ public class GameState : MonoBehaviour
     private float _gameTime; // Exact game time
     private int _gameSeconds; // Game time in seconds
 
-    // Initialize variables, register events, spawn the player and set the camera to follow them, reset timeScale
+    // Initialize variables, register events
     void Awake()
     {
         _gameInput = GetComponent<GameInput>();
@@ -29,28 +28,32 @@ public class GameState : MonoBehaviour
         EntityLeveling.OnAnyEntityLevelUp += PauseGameOnLevelUp;
         EntityInventory.OnAnyEntityGainItem += ResumeGameOnGainItem;
         EntityHealth.OnAnyEntityDeath += GameOver;
-
-        SpawnPlayer();
-        SetCameraFollowPlayer();
     }
-    // Assign controllers and ResumeGame, setting timeScale to 1 and changing GameInput controller to _playerController, then raise OnGameStart event
+    // Assign controllers and if player exists set camera to follow player, resume game to reset timeScale to 1 and raise OnGameStart
     private void Start()
     {
-        _playerController = _player.GetComponent<PlayerController>();
         _nullController = new NullController();
+        _playerController = _nullController;
+
+        if (_player != null)
+        {
+            _playerController = _player.GetComponent<PlayerController>();
+            SetCameraFollowPlayer();
+        }
+
         ResumeGame();
         this.RaiseEvent(OnGameStart);
     }
 
     // Set time scale to 0 and controller to _nullController ignoring all input
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         ChangeController(_nullController);
     }
 
     // Set time scale to 1 and controller to _playerContoller accepting all input
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         ChangeController(_playerController);
@@ -74,16 +77,6 @@ public class GameState : MonoBehaviour
         {
             ResumeGame();
         }
-    }
-
-    // Instantiate the player
-    private void SpawnPlayer()
-    {
-        if (_player != null)
-        {
-            Destroy(_player);
-        }
-        _player = Instantiate(_playerTemplate);
     }
 
     // If camera doesn't have a parentConstraint component, add it, then set it to follow the player
@@ -154,7 +147,7 @@ public class GameState : MonoBehaviour
 
     public enum GameEnd { WIN, LOSS}
 
-    public static event EventHandler OnGameStart;
-    public static event EventHandler<int> OnGameSecondPassed;
-    public static event EventHandler<GameEnd> OnGameEnd;
+    public event EventHandler OnGameStart;
+    public event EventHandler<int> OnGameSecondPassed;
+    public event EventHandler<GameEnd> OnGameEnd;
 }

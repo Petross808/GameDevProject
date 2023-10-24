@@ -1,0 +1,30 @@
+#Wrapper {
+    width: 400px;
+    height: 300px;
+    align-self: center;
+    margin-top: 20%;
+    align-items: center;
+    justify-content: center;
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=-1465868375578939218&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_57');
+    -unity-background-image-tint-color: rgb(0, 0, 0);
+}
+
+#PauseTitle {
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    font-size: 64px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    margin-bottom: 30px;
+}
+
+.button {
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2051360663148026437&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_60');
+    width: 256px;
+    height: 48px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    font-size: 32px;
+    -unity-text-align: upper-center;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+}

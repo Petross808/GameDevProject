@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
+    private GameState _gameState;
+
+    [SerializeField]
     private Transform _enemyTemplate; // What enemy is it spawning
     [SerializeField]
     private GameObject _enemyTarget; // What are the enemies following
@@ -50,8 +53,8 @@ public class EnemySpawner : MonoBehaviour
         if(_enemyTarget.TryGetComponent<EntityHealth>(out _targetEntityHealth))
         {
             _targetEntityHealth.OnEntityDeath += Disable;
-            GameState.OnGameSecondPassed += UpdateSpawnRate;
-            GameState.OnGameSecondPassed += ActivateBurst;
+            _gameState.OnGameSecondPassed += UpdateSpawnRate;
+            _gameState.OnGameSecondPassed += ActivateBurst;
             _initialized = true;
         }
     }
@@ -143,8 +146,8 @@ public class EnemySpawner : MonoBehaviour
         if(_initialized)
         {
             _targetEntityHealth.OnEntityDeath -= Disable;
-            GameState.OnGameSecondPassed -= UpdateSpawnRate;
-            GameState.OnGameSecondPassed -= ActivateBurst;
+            _gameState.OnGameSecondPassed -= UpdateSpawnRate;
+            _gameState.OnGameSecondPassed -= ActivateBurst;
         }
     }
 }

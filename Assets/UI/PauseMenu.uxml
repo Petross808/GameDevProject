@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheets/PauseMenuStylesheet.uss?fileID=7433441132597879392&amp;guid=e9585fee1ce723e44a22e268110e1355&amp;type=3#PauseMenuStylesheet" />
+    <ui:VisualElement name="Wrapper">
+        <ui:Label tabindex="-1" text="Paused" display-tooltip-when-elided="true" name="PauseTitle" />
+        <ui:Label tabindex="-1" text="Resume" display-tooltip-when-elided="true" name="ResumeButton" class="button" />
+        <ui:Label tabindex="-1" text="Back to Menu" display-tooltip-when-elided="true" name="MenuButton" class="button" />
+    </ui:VisualElement>
+</ui:UXML>

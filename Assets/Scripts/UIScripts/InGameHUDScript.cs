@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public class InGameHUDLogic : MonoBehaviour
 {
+    [SerializeField]
+    private GameState _gameState;
+
     private UIDocument _document;
     private ProgressBar _healthBar; // Ship health bar
     private VisualElement _xpBar; // Player xp bar
@@ -28,7 +31,7 @@ public class InGameHUDLogic : MonoBehaviour
 
         EntityHealth.OnAfterAnyEntityHit += UpdateHealthbar;
         EntityHealth.OnAfterAnyEntityHeal += UpdateHealthbar;
-        GameState.OnGameSecondPassed += UpdateTimer;
+        _gameState.OnGameSecondPassed += UpdateTimer;
         EntityLeveling.OnAfterAnyEntityGainXP += UpdateXPBar;
         EntityCombat.OnAnyEntityAttack += UpdateCooldowns;
 
@@ -95,7 +98,7 @@ public class InGameHUDLogic : MonoBehaviour
     {
         EntityHealth.OnAfterAnyEntityHit -= UpdateHealthbar;
         EntityHealth.OnAfterAnyEntityHeal -= UpdateHealthbar;
-        GameState.OnGameSecondPassed -= UpdateTimer;
+        _gameState.OnGameSecondPassed -= UpdateTimer;
         EntityLeveling.OnAfterAnyEntityGainXP -= UpdateXPBar;
         EntityCombat.OnAnyEntityAttack -= UpdateCooldowns;
     }

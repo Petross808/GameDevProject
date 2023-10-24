@@ -26,6 +26,7 @@ public class GameInput : MonoBehaviour
         _playerInput.actions["Space"].performed += SpaceStart;
         _playerInput.actions["Space"].canceled += SpaceStop;
         _playerInput.actions["MouseAim"].performed += AimChanged;
+        _playerInput.actions["Esc"].performed += EscPressed;
     }
 
     private void DirStart(InputAction.CallbackContext context)
@@ -73,6 +74,12 @@ public class GameInput : MonoBehaviour
         _controller?.RMBStop(context);
     }
 
+    // Raise OnEscapePressed event when escape button is pressed
+    private void EscPressed(InputAction.CallbackContext context)
+    {
+        this.RaiseEvent(OnEscapePressed);
+    }
+
     private void OnDestroy()
     {
         _playerInput.actions["WASD"].performed -= DirStart;
@@ -84,5 +91,8 @@ public class GameInput : MonoBehaviour
         _playerInput.actions["Space"].performed -= SpaceStart;
         _playerInput.actions["Space"].canceled -= SpaceStop;
         _playerInput.actions["MouseAim"].performed -= AimChanged;
+        _playerInput.actions["Esc"].performed -= EscPressed;
     }
+
+    public event EventHandler OnEscapePressed;
 }
