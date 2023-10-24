@@ -7,14 +7,14 @@ using UnityEngine;
 public class EntityInventory : MonoBehaviour
 {
     [SerializeField]
-    private List<ItemSO> _itemList;
+    private List<ItemSO> _startingItemList;
 
-    public List<ItemSO> ItemList { get => _itemList; }
+    public List<ItemSO> ItemList { get => _startingItemList; }
 
     // Initialize all items that started in the inventory
     void Start()
     {
-        foreach(ItemSO item in _itemList)
+        foreach(ItemSO item in _startingItemList)
         {
             AddItem(item);
         }
@@ -25,8 +25,6 @@ public class EntityInventory : MonoBehaviour
     {
         this.RaiseEvent<ItemSO>(OnEntityGainItem, item);
         this.RaiseEvent<ItemSO>(OnAnyEntityGainItem, item);
-
-        _itemList.Add(item);
 
         System.Type entityModType = Type.GetType(item.EntityModifier);
 

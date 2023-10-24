@@ -4,19 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Crystal
   - GameState
+  - Ship
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - WorldBounds
   - Water
   - UI
   - Player
   - Enemy
   - Hitbox
-  - Crystal
+  - Ship
   - 
   - 
   - 

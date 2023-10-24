@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _xpToLvlUp: 1000
   _xpRequirementMultiplier: 1.2
-  _maxXpRequirement: 26000
+  _maxXpRequirement: 100000
 --- !u!114 &418611414808431037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8d0240826b4cf4e804d506f95fdaa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemList: []
+  _startingItemList: []
 --- !u!114 &7508393886139201401
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -119,7 +119,7 @@ public class GameState : MonoBehaviour
         if(data.DamageReceiver.transform.root.CompareTag("Ship"))
         {
             PauseGame();
-            this.RaiseEvent(OnGameEnd);
+            this.RaiseEvent(OnGameEnd, GameEnd.LOSS);
         }
     }
 
@@ -129,7 +129,7 @@ public class GameState : MonoBehaviour
         if(_gameSeconds == 600)
         {
             PauseGame();
-            this.RaiseEvent(OnGameWon);
+            this.RaiseEvent(OnGameEnd, GameEnd.WIN);
         }
     }
 
@@ -152,8 +152,9 @@ public class GameState : MonoBehaviour
         EntityInventory.OnAnyEntityGainItem -= ResumeGameOnGainItem;
     }
 
+    public enum GameEnd { WIN, LOSS}
+
     public static event EventHandler OnGameStart;
     public static event EventHandler<int> OnGameSecondPassed;
-    public static event EventHandler OnGameEnd;
-    public static event EventHandler OnGameWon;
+    public static event EventHandler<GameEnd> OnGameEnd;
 }

@@ -22,7 +22,7 @@ public class HealthbarScript : MonoBehaviour
     }
 
     // When health of the entity changes, set Health Bar to active and update it's value, if full health, hide it again
-    private void UpdateHealthBar(object sender, object args)
+    private void UpdateHealthBar(object sender, int _)
     {
         if (!gameObject.activeSelf)
         {

@@ -81,7 +81,7 @@ public class InGameHUDLogic : MonoBehaviour
     }
 
     // After the health of the Ship changes, update the health bar
-    public void UpdateHealthbar(object source, object args)
+    public void UpdateHealthbar(object source, int _)
     {
         if (source is EntityHealth eh &&
             eh.gameObject.CompareTag("Ship"))

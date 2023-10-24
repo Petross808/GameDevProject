@@ -36,7 +36,7 @@ public class AILogic : MonoBehaviour
         }
 
         // if target is in range, attack it, else move towards it
-        if (Vector2.Distance(transform.position, _target.transform.position) < _range)
+        if (Vector2.Distance(_aim.transform.position, _target.transform.position) < _range)
         {
             AttackTarget();
         }

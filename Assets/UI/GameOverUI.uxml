@@ -1,5 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Stylesheets/GameOverStylesheet.uss?fileID=7433441132597879392&amp;guid=9a022217c73abb34394fd3f85ea96145&amp;type=3#GameOverStylesheet" />
-    <ui:Label tabindex="-1" text="You Lost" display-tooltip-when-elided="true" name="GameOverLabel" style="color: rgb(255, 255, 255);" />
-    <ui:Button text="Back to Menu" display-tooltip-when-elided="true" name="MenuButton" />
+    <ui:VisualElement name="Wrapper" style="width: 600px; height: 550px;">
+        <ui:Label tabindex="-1" text="You Lost" display-tooltip-when-elided="true" name="GameOverLabel" />
+        <ui:Label tabindex="-1" text="Time survived: 00:00" display-tooltip-when-elided="true" name="TimeSurvived" class="StatField" style="-unity-text-align: upper-center;" />
+        <ui:Label tabindex="-1" text="Level: 0" display-tooltip-when-elided="true" name="Level" class="StatField" />
+        <ui:Label tabindex="-1" text="Enemies killed: 0" display-tooltip-when-elided="true" name="EnemiesKilled" class="StatField" />
+        <ui:Label tabindex="-1" text="Total damage dealt: 0" display-tooltip-when-elided="true" name="DamageDealt" class="StatField" />
+        <ui:Label tabindex="-1" text="Total damage received: 0" display-tooltip-when-elided="true" name="DamageSurvived" class="StatField" />
+        <ui:Label tabindex="-1" text="Back to Menu" display-tooltip-when-elided="true" name="MenuButton" />
+    </ui:VisualElement>
 </ui:UXML>

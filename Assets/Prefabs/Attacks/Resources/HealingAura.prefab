@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46ffc3eea544434a9593a29d2ece1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
-  _cooldown: 1
+  _damage: 5
+  _cooldown: 0.2
   _isHealing: 1
 --- !u!114 &804452302717688300
 MonoBehaviour:

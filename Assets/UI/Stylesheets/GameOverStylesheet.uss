@@ -1,11 +1,39 @@
+#Wrapper {
+    width: 700px;
+    height: 600px;
+    align-self: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2020845106392875415&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_24');
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.94);
+    margin-top: 150px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: flex-start;
+}
+
 #GameOverLabel {
     align-self: center;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 20%;
     -unity-font-style: bold;
-    font-size: 30px;
+    font-size: 64px;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.StatField {
+    align-self: flex-start;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    align-items: center;
 }
 
 #MenuButton {
@@ -13,4 +41,14 @@
     justify-content: center;
     align-self: center;
     flex-shrink: 0;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2051360663148026437&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_60');
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-top: 50px;
 }

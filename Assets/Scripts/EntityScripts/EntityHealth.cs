@@ -29,8 +29,8 @@ public class EntityHealth : MonoBehaviour
         }
 
         _health -= hitData.DamageDealt;
-        this.RaiseEvent(OnAfterEntityHit);
-        this.RaiseEvent(OnAfterAnyEntityHit);
+        this.RaiseEvent(OnAfterEntityHit, hitData.DamageDealt);
+        this.RaiseEvent(OnAfterAnyEntityHit, hitData.DamageDealt);
         if (_health <= 0)
         {
             Die(hitData);
@@ -42,8 +42,8 @@ public class EntityHealth : MonoBehaviour
     public virtual void Heal(int amount)
     {
         _health = (_health + amount) > _maxHealth ? _maxHealth : _health + amount;
-        this.RaiseEvent(OnAfterEntityHeal);
-        this.RaiseEvent(OnAfterAnyEntityHeal);
+        this.RaiseEvent(OnAfterEntityHeal, amount);
+        this.RaiseEvent(OnAfterAnyEntityHeal, amount);
     }
 
     // Set max health to the provided value, if health exceeds max health, lower it to match
@@ -71,13 +71,13 @@ public class EntityHealth : MonoBehaviour
     public event EventHandler<HitData> OnEntityHit;
     public static event EventHandler<HitData> OnAnyEntityHit;
 
-    public event EventHandler OnAfterEntityHit;
-    public static event EventHandler OnAfterAnyEntityHit;
+    public event EventHandler<int> OnAfterEntityHit;
+    public static event EventHandler<int> OnAfterAnyEntityHit;
 
     public event EventHandler<HitData> OnEntityDeath;
     public static event EventHandler<HitData> OnAnyEntityDeath;
 
-    public event EventHandler OnAfterEntityHeal;
-    public static event EventHandler OnAfterAnyEntityHeal;
+    public event EventHandler<int> OnAfterEntityHeal;
+    public static event EventHandler<int> OnAfterAnyEntityHeal;
 
 }
