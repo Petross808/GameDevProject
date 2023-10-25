@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(UIDocument))]
 public class MainMenuScript : MonoBehaviour
 {
+    [SerializeField]
+    private OptionsMenuScript _options;
+
     private UIDocument _document;
     private Label _playButton; // Start the game
     private Label _optionsButton; // Open game options
@@ -23,6 +26,7 @@ public class MainMenuScript : MonoBehaviour
         _quitButton = _document.rootVisualElement.Q<Label>("QuitButton");
 
         _playButton.RegisterCallback<ClickEvent>(StartGame);
+        _optionsButton.RegisterCallback<ClickEvent>(OpenOptions);
         _quitButton.RegisterCallback<ClickEvent>(QuitGame);
     }
 
@@ -31,6 +35,18 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    private void OpenOptions(ClickEvent evt)
+    {
+        _document.rootVisualElement.visible = false;
+        _options.ShowUI();
+    }
+
+    public void ShowUI()
+    {
+        _document.rootVisualElement.visible = true;
+    }
+
 
     // When the quit button is clicked, close the game
     private void QuitGame(ClickEvent evt)

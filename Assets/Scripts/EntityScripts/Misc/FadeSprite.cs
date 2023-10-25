@@ -13,10 +13,10 @@ public class FadeSprite : MonoBehaviour
     {
         yield return new WaitForSeconds(initialDelay);
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-        for(float i = startOpacity; i > 0; i -= 0.05f)
+        for(float i = startOpacity; i >= 0; i -= 0.05f)
         {
+            yield return new WaitForSeconds(0.1f);
             sprite.color = new(1, 1, 1, i);
-            yield return new WaitForSeconds(0.05f);
         }
     }
 }

@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheets/MainMenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=51fbbf8d048f49f40b5863df99e45f7c&amp;type=3#MainMenuStyleSheet" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Sprites/Space%20Background(1).png?fileID=-3482510193624101342&amp;guid=6ce5801f5d6a1be4b9734f59199ce0a8&amp;type=3#Space Background(1)_0&apos;); -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: center; align-self: center; width: 100%; height: 100%;">
+        <ui:Label tabindex="-1" text="Options" display-tooltip-when-elided="true" name="GameTitle" />
+        <ui:VisualElement name="Wrapper">
+            <ui:Slider label="Volume" name="VolumeSlider" high-value="1" value="0.5" />
+            <ui:Label tabindex="-1" text="Back to Menu" display-tooltip-when-elided="true" name="MenuButton" class="MenuButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

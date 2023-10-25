@@ -49,3 +49,13 @@
     text-shadow: 2px 2px 0 rgb(0, 0, 0);
     background-image: url('project://database/Assets/Sprites/GUI.png?fileID=2051360663148026437&guid=88d4d79bc5d0e8c48b474e21f3d7913a&type=3#GUI_60');
 }
+
+#VolumeSlider {
+    align-self: center;
+    font-size: 32px;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    padding-bottom: 50px;
+    width: 300px;
+}

@@ -12,6 +12,12 @@ public class GameState : MonoBehaviour
     [SerializeField]
     private Transform _player;
 
+    [SerializeField]
+    private Texture2D _inGameCursor;
+    [SerializeField]
+    private Texture2D _menuCursor;
+
+
     private IController _playerController;
     private IController _nullController;
     private GameInput _gameInput;
@@ -48,6 +54,7 @@ public class GameState : MonoBehaviour
     // Set time scale to 0 and controller to _nullController ignoring all input
     public void PauseGame()
     {
+        Cursor.SetCursor(_menuCursor, new(0, 0), CursorMode.Auto);
         Time.timeScale = 0;
         ChangeController(_nullController);
     }
@@ -55,6 +62,7 @@ public class GameState : MonoBehaviour
     // Set time scale to 1 and controller to _playerContoller accepting all input
     public void ResumeGame()
     {
+        Cursor.SetCursor(_inGameCursor,new(8,8), CursorMode.Auto);
         Time.timeScale = 1;
         ChangeController(_playerController);
     }

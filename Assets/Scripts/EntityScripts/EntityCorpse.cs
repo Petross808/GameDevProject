@@ -17,9 +17,11 @@ public class EntityCorpse : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private RuntimeAnimatorController _animator;
     private AudioClip _deathSound;
+    private float _deathSoundVolume;
 
     public RuntimeAnimatorController Animator { set => _animator = value; } // Animator needs to be injected by EntityAnimation
     public AudioClip DeathSound { set => _deathSound = value; } // DeathSound needs to be injected by EntitySound
+    public float DeathSoundVolume { set => _deathSoundVolume = value; } // DeathSoundVolume needs to be injected by EntitySound
 
     private void Awake()
     {
@@ -36,13 +38,13 @@ public class EntityCorpse : MonoBehaviour
         corpse.transform.position = gameObject.transform.position;
 
         SpriteRenderer rend = corpse.AddComponent<SpriteRenderer>();
-        rend.sprite = _spriteRenderer.sprite;
+        //rend.sprite = _spriteRenderer.sprite;
         rend.flipX = GetComponent<SpriteRenderer>().flipX;
 
         if(_fadeOut)
         {
-            rend.color = new Color(1, 1, 1, 0.7f);
-            rend.AddComponent<FadeSprite>().StartFade(1, 0.7f);
+            rend.color = new Color(1, 1, 1, 0.4f);
+            rend.AddComponent<FadeSprite>().StartFade(1, 0.4f);
         }
 
         if (_animator != null)
@@ -56,6 +58,7 @@ public class EntityCorpse : MonoBehaviour
         {
             AudioSource audio = corpse.AddComponent<AudioSource>();
             audio.clip = _deathSound;
+            audio.volume = _deathSoundVolume;
             audio.Play();
         }
         Destroy(corpse, _destroyTime);

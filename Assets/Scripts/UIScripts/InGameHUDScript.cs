@@ -60,10 +60,10 @@ public class InGameHUDLogic : MonoBehaviour
     private IEnumerator UpdateCooldownIcon(int slot, float cooldown)
     {
         _cooldownIcons[slot].style.opacity = 100;
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i <= 30; i++)
         {
             _cooldownIcons[slot].style.width = 18 + i;
-            yield return new WaitForSeconds(cooldown/30);
+            yield return new WaitForSeconds(cooldown/32);
         }
     }
 

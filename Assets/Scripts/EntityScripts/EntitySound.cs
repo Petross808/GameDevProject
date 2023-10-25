@@ -8,9 +8,20 @@ public class EntitySound : MonoBehaviour
     [SerializeField]
     private AudioClip _spawnSound;
     [SerializeField]
+    [Range(0f, 1f)]
+    private float _spawnVolume;
+
+    [SerializeField]
     private AudioClip _receiveDamageSound;
     [SerializeField]
+    [Range(0f, 1f)]
+    private float _receiveDamageVolume;
+
+    [SerializeField]
     private AudioClip _deathSound;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float _deathVolume;
 
     private AudioSource _audioSource;
     private EntityHealth _entityHealth;
@@ -28,16 +39,19 @@ public class EntitySound : MonoBehaviour
             TryGetComponent<EntityCorpse>(out EntityCorpse ec))
         {
             ec.DeathSound = _deathSound;
+            ec.DeathSoundVolume = _deathVolume;
         }
     }
 
     private void PlayHitSound(object sender, int e)
     {
+        _audioSource.volume = _receiveDamageVolume;
         PlaySound(_receiveDamageSound);
     }
 
     private void Start()
     {
+        _audioSource.volume = _spawnVolume;
         PlaySound(_spawnSound);
     }
 
