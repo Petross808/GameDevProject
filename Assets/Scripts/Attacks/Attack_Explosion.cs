@@ -18,9 +18,11 @@ public class Attack_Explosion : MonoBehaviour, IAttack
     public bool IsHealing { get => _isHealing; set => _isHealing = value; }
 
 
-    // Destroy self when cooldown ends
-    void Start()
+    // Destroy collider after 0.1 seconds, destroy self when cooldown ends
+    void Awake()
     {
+        Collider collider = GetComponent<Collider>();
+        Destroy(collider,0.1f);
         Destroy(this.gameObject, _cooldown);
     }
 

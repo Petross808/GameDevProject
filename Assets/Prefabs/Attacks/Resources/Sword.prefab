@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8764947531728453840}
   - component: {fileID: 1265166254979582903}
   m_Layer: 8
-  m_Name: BasicSwing
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519f1944d7a4c834088e4a3ec728dd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 25
+  _damage: 50
   _cooldown: 0.5
   _attackTime: 0.083333336
   _isHealing: 0

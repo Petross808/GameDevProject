@@ -69,6 +69,11 @@ public class EntityCombat : MonoBehaviour
         }
     }
 
+    public IAttack GetAttack(AttackSlot slot)
+    {
+        return _attacks[(int)slot];
+    }
+
     // Tick down cooldowns of all attacks in the attack slots (Update doesn't run in disabled objects)
     void Update()
     {

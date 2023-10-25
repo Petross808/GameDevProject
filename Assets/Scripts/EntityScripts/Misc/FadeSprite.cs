@@ -9,6 +9,8 @@ public class FadeSprite : MonoBehaviour
     {
         StartCoroutine(Fade(initialDelay, startOpacity));
     }
+
+    // Wait for initial delay, then fade the sprite opacity to zero
     private IEnumerator Fade(float initialDelay, float startOpacity)
     {
         yield return new WaitForSeconds(initialDelay);

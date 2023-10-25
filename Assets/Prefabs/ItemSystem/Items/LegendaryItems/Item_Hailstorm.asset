@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835c4721448c90845b24b4c925eedf1b, type: 3}
-  m_Name: Item_Greatsword
+  m_Name: Item_Hailstorm
   m_EditorClassIdentifier: 
-  _itemName: Greatsword
-  _itemDescription: '-New Primary-
+  _itemName: Hailstorm
+  _itemDescription: '-New Aura-
 
-    Slow high damage swing
+    Reduce movement speed of nearby enemies
 
 
-    -If already
-    owned-
+    -If
+    already owned-
 
-    Increase Attack Speed'
-  _entityModifier: EM_Greatsword
+    Increase reduction'
+  _entityModifier: EM_Hailstorm
