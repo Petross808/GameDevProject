@@ -27194,7 +27194,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 17.71875
+  orthographic size: 17.09375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -27500,6 +27500,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 418611414808431037, guid: 90d45b331b2b235498b6d60b0e112a40, type: 3}
+      propertyPath: _startingItemList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 418611414808431037, guid: 90d45b331b2b235498b6d60b0e112a40, type: 3}
+      propertyPath: '_startingItemList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a74e0c04d9beeb4480aea26390fa1de, type: 2}
+    - target: {fileID: 418611414808431037, guid: 90d45b331b2b235498b6d60b0e112a40, type: 3}
+      propertyPath: '_startingItemList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a8250f0c487afc6428cd0ec5e6395157, type: 2}
     - target: {fileID: 792807686052573130, guid: 90d45b331b2b235498b6d60b0e112a40, type: 3}
       propertyPath: m_Name
       value: Player
@@ -28383,7 +28395,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

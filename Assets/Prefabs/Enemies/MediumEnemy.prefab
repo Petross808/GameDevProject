@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 1255574127402217905}
   - component: {fileID: 732137447327595819}
   - component: {fileID: 3463972810199282636}
+  - component: {fileID: -2554061125201994362}
+  - component: {fileID: 8712710194359101236}
   m_Layer: 7
   m_Name: MediumEnemy
   m_TagString: Enemy
@@ -170,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42650a08321644246be5896de1f4478b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 4
+  _range: 3
   _aim: {fileID: 5457131133419339931}
   _target: {fileID: 0}
 --- !u!114 &3323370817659657172
@@ -263,6 +265,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpValue: 1500
+--- !u!114 &-2554061125201994362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd71bf4c792d84ea585e946deb7561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyTime: 2
+  _fadeOut: 1
+--- !u!114 &8712710194359101236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f14d3e756101e47908da7a9fa20c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnSound: {fileID: 0}
+  _receiveDamageSound: {fileID: 0}
+  _deathSound: {fileID: 8300000, guid: 0e05b4fcb3f12c84094297e1f90395e8, type: 3}
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7005012764399682282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.175, y: -0.6, z: 0}
+  m_LocalPosition: {x: -0.226, y: -0.442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

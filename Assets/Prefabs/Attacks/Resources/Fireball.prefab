@@ -47,9 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 100
   _cooldown: 5
-  _hitMask:
-    serializedVersion: 2
-    m_Bits: 128
+  _isHealing: 0
   _projectileTemplate: {fileID: 4790868300006398190, guid: e19b3fff7b30e8742b27fa48b8cf7d05, type: 3}
 --- !u!114 &-8456752385854851642
 MonoBehaviour:

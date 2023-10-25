@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: -143070519877085673}
   - component: {fileID: 5386566127856524048}
   - component: {fileID: -8852122955810226585}
+  - component: {fileID: 3348301762040544160}
+  - component: {fileID: 5347585466211489891}
   m_Layer: 7
   m_Name: HealerEnemy
   m_TagString: Enemy
@@ -239,7 +241,7 @@ Animator:
   m_GameObject: {fileID: 3623359031452427282}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b36ad4e6456a37249a1c480082ff0ab6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 18258cf0db4c1c04aa6d822af24f5099, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -276,6 +278,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpValue: 500
+--- !u!114 &3348301762040544160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd71bf4c792d84ea585e946deb7561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyTime: 2
+  _fadeOut: 1
+--- !u!114 &5347585466211489891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623359031452427282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f14d3e756101e47908da7a9fa20c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnSound: {fileID: 0}
+  _receiveDamageSound: {fileID: 0}
+  _deathSound: {fileID: 8300000, guid: 0e05b4fcb3f12c84094297e1f90395e8, type: 3}
 --- !u!1 &7005012764399682282
 GameObject:
   m_ObjectHideFlags: 0

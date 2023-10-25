@@ -178,7 +178,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +262,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,7 +275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_5
+      name: Monster7Death1
       rect:
         serializedVersion: 2
         x: 0
@@ -283,7 +283,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,7 +296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_6
+      name: Monster7Hit1
       rect:
         serializedVersion: 2
         x: 80
@@ -304,7 +304,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +325,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +346,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,7 +380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_10
+      name: Monster7Death6
       rect:
         serializedVersion: 2
         x: 0
@@ -388,7 +388,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,7 +401,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_11
+      name: Monster7Death5
       rect:
         serializedVersion: 2
         x: 80
@@ -409,7 +409,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,7 +422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_12
+      name: Monster7Death4
       rect:
         serializedVersion: 2
         x: 160
@@ -430,7 +430,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,7 +443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_13
+      name: Monster7Death3
       rect:
         serializedVersion: 2
         x: 240
@@ -451,7 +451,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,7 +464,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_14
+      name: Monster7Death2
       rect:
         serializedVersion: 2
         x: 320
@@ -472,7 +472,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,7 +485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_15
+      name: Monster7Attack3
       rect:
         serializedVersion: 2
         x: 0
@@ -493,7 +493,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,7 +506,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_16
+      name: Monster7Attack2
       rect:
         serializedVersion: 2
         x: 80
@@ -514,7 +514,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,7 +527,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_17
+      name: Monster7Attack1
       rect:
         serializedVersion: 2
         x: 160
@@ -535,7 +535,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -548,7 +548,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_18
+      name: Monster7Death8
       rect:
         serializedVersion: 2
         x: 240
@@ -556,7 +556,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -569,7 +569,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_19
+      name: Monster7Death7
       rect:
         serializedVersion: 2
         x: 320
@@ -577,7 +577,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -590,7 +590,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_20
+      name: Monster7Attack8
       rect:
         serializedVersion: 2
         x: 0
@@ -598,7 +598,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -611,7 +611,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_21
+      name: Monster7Attack7
       rect:
         serializedVersion: 2
         x: 80
@@ -619,7 +619,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -632,7 +632,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_22
+      name: Monster7Attack6
       rect:
         serializedVersion: 2
         x: 160
@@ -640,7 +640,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -653,7 +653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_23
+      name: Monster7Attack5
       rect:
         serializedVersion: 2
         x: 240
@@ -661,7 +661,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -674,7 +674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster7Pack_24
+      name: Monster7Attack4
       rect:
         serializedVersion: 2
         x: 320
@@ -682,7 +682,7 @@ TextureImporter:
         width: 80
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -705,27 +705,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Monster7Attack1: -161275618301039842
+      Monster7Attack2: 4377608418178043159
+      Monster7Attack3: 7011615182205374440
+      Monster7Attack4: -7635621442515729586
+      Monster7Attack5: -8733243015988312338
+      Monster7Attack6: -7055073429329998941
+      Monster7Attack7: 9114716759837195964
+      Monster7Attack8: -5880124508794865022
+      Monster7Death1: 377006929635791761
+      Monster7Death2: -12611308034360499
+      Monster7Death3: 2997808409124767785
+      Monster7Death4: -8071172262775803171
+      Monster7Death5: 8204410350406498278
+      Monster7Death6: 7753139746649350881
+      Monster7Death7: 4397292587601501671
+      Monster7Death8: -7091948430608808466
+      Monster7Hit1: 2575309314267298623
       Monster7Idle1: -703200822312057204
       Monster7Idle2: -4917327088031491776
       Monster7Idle3: -5105220906739904273
       Monster7Idle4: 4320404091603466999
-      Monster7Pack_10: 7753139746649350881
-      Monster7Pack_11: 8204410350406498278
-      Monster7Pack_12: -8071172262775803171
-      Monster7Pack_13: 2997808409124767785
-      Monster7Pack_14: -12611308034360499
-      Monster7Pack_15: 7011615182205374440
-      Monster7Pack_16: 4377608418178043159
-      Monster7Pack_17: -161275618301039842
-      Monster7Pack_18: -7091948430608808466
-      Monster7Pack_19: 4397292587601501671
-      Monster7Pack_20: -5880124508794865022
-      Monster7Pack_21: 9114716759837195964
-      Monster7Pack_22: -7055073429329998941
-      Monster7Pack_23: -8733243015988312338
-      Monster7Pack_24: -7635621442515729586
-      Monster7Pack_5: 377006929635791761
-      Monster7Pack_6: 2575309314267298623
       Monster7Walk1: 151265144502182075
       Monster7Walk2: 6821471658009321663
       Monster7Walk3: 668115074009753188

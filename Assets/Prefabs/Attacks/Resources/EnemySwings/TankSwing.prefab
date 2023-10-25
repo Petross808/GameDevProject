@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1436025442024765104}
   - component: {fileID: 1567151005710247906}
   - component: {fileID: 918667199821304842}
-  - component: {fileID: 8764947531728453840}
+  - component: {fileID: -2800468821700909018}
   m_Layer: 8
   m_Name: TankSwing
   m_TagString: Untagged
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8b7a375b9d590408fa4d252399f34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8764947531728453840
+--- !u!114 &-2800468821700909018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,12 +264,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4153024497172681620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 519f1944d7a4c834088e4a3ec728dd6a, type: 3}
+  m_Script: {fileID: 11500000, guid: a12e74959f783714b926642f1a8144f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 100
-  _cooldown: 5
+  _damage: 200
+  _cooldown: 3
   _attackTime: 0.083333336
+  _isHealing: 0
+  _delay: 0.7
 --- !u!1 &4685246756969006226
 GameObject:
   m_ObjectHideFlags: 0

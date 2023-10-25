@@ -14,7 +14,7 @@ public class InGameHUDLogic : MonoBehaviour
     private VisualElement _xpBar; // Player xp bar
     private Label _timer; // game time timer
     private VisualElement[] _cooldownIcons; // Skill icons with the cooldowns
-
+     
     // Initialize variables and register events
     void Awake()
     {
