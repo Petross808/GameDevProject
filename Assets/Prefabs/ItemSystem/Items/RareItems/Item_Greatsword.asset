@@ -15,5 +15,13 @@ MonoBehaviour:
   _itemName: Greatsword
   _itemDescription: '-New Primary-
 
-    Slow high damage swing'
+    Slow high damage swing
+
+
+    -If already
+    owned-
+
+    Increase Damage
+
+    Increase Attack Speed'
   _entityModifier: EM_Greatsword

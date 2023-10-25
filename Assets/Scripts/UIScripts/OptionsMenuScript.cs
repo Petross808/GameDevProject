@@ -18,7 +18,7 @@ public class OptionsMenuScript : MonoBehaviour
     {
         _document = GetComponent<UIDocument>();
 
-        _volumeSlider = _document.rootVisualElement.Q<Slider>("VolumeSlider");
+        _volumeSlider = _document.rootVisualElement.Q<Slider>("Slider");
         _menuButton = _document.rootVisualElement.Q<Label>("MenuButton");
 
         _volumeSlider.RegisterCallback<ChangeEvent<float>>(UpdateVolume);

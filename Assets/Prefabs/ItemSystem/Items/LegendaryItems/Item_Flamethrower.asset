@@ -15,5 +15,11 @@ MonoBehaviour:
   _itemName: Flamethrower
   _itemDescription: '-New Primary-
 
-    Flamethrower'
+    Flamethrower
+
+
+    -If already owned-
+
+    Increase
+    Damage'
   _entityModifier: EM_Flamethrower

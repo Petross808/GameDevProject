@@ -14,28 +14,39 @@ public class InGameHUDLogic : MonoBehaviour
     private VisualElement _xpBar; // Player xp bar
     private Label _timer; // game time timer
     private VisualElement[] _cooldownIcons; // Skill icons with the cooldowns
+    private VisualElement _keyHints;
      
     // Initialize variables and register events
     void Awake()
     {
         _document = GetComponent<UIDocument>();
-        _healthBar = _document.rootVisualElement.Q("CrystalHealth") as ProgressBar;
-        _xpBar = _document.rootVisualElement.Q("XpBar") as VisualElement;
-        _timer = _document.rootVisualElement.Q("Timer") as Label;
+        _healthBar = _document.rootVisualElement.Q<ProgressBar>("CrystalHealth");
+        _xpBar = _document.rootVisualElement.Q<VisualElement>("XpBar");
+        _timer = _document.rootVisualElement.Q<Label>("Timer");
         _cooldownIcons = new VisualElement[]
         {
-            _document.rootVisualElement.Q("FillPrimary") as VisualElement,
-            _document.rootVisualElement.Q("FillSecondary") as VisualElement,
-            _document.rootVisualElement.Q("FillUtility") as VisualElement,
+            _document.rootVisualElement.Q<VisualElement>("FillPrimary"),
+            _document.rootVisualElement.Q<VisualElement>("FillSecondary"),
+            _document.rootVisualElement.Q<VisualElement>("FillUtility")
         };
+        _keyHints = _document.rootVisualElement.Q<VisualElement>("KeyHintWrapper");
 
         EntityHealth.OnAfterAnyEntityHit += UpdateHealthbar;
         EntityHealth.OnAfterAnyEntityHeal += UpdateHealthbar;
         _gameState.OnGameSecondPassed += UpdateTimer;
+        _gameState.OnGameSecondPassed += HideKeyHints;
         EntityLeveling.OnAfterAnyEntityGainXP += UpdateXPBar;
         EntityCombat.OnAnyEntityAttack += UpdateCooldowns;
 
 
+    }
+
+    private void HideKeyHints(object sender, int gameTime)
+    {
+        if(gameTime == 20)
+        {
+            _keyHints.visible = false;
+        }
     }
 
     // Set ship healthbar to full and player xp bar to zero
@@ -63,7 +74,7 @@ public class InGameHUDLogic : MonoBehaviour
         for (int i = 0; i <= 30; i++)
         {
             _cooldownIcons[slot].style.width = 18 + i;
-            yield return new WaitForSeconds(cooldown/32);
+            yield return new WaitForSeconds(cooldown/35);
         }
     }
 

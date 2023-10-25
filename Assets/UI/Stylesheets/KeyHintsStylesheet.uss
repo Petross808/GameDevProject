@@ -1,0 +1,23 @@
+#KeyHintWrapper {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    opacity: 0.5;
+}
+.button {
+    width: 30px;
+    height: 30px;
+    padding-left: 50px;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-right: 10px;
+}
+#KeyHint {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/m5x7.ttf?fileID=12800000&guid=2870be1e7d584d748b979f45313fcad4&type=3#m5x7');
+    font-size: 24px;
+    -unity-font-style: normal;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 0 rgb(0, 0, 0);
+}

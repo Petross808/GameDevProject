@@ -3,7 +3,10 @@
     <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Sprites/Space%20Background(1).png?fileID=-3482510193624101342&amp;guid=6ce5801f5d6a1be4b9734f59199ce0a8&amp;type=3#Space Background(1)_0&apos;); -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: center; align-self: center; width: 100%; height: 100%;">
         <ui:Label tabindex="-1" text="Options" display-tooltip-when-elided="true" name="GameTitle" />
         <ui:VisualElement name="Wrapper">
-            <ui:Slider label="Volume" name="VolumeSlider" high-value="1" value="0.5" />
+            <ui:VisualElement name="VolumeSlider">
+                <ui:Label tabindex="-1" text="Volume" display-tooltip-when-elided="true" name="VolumeTitle" />
+                <ui:Slider name="Slider" high-value="1" value="0.5" style="width: 180px; margin-left: 10px; margin-top: 10px;" />
+            </ui:VisualElement>
             <ui:Label tabindex="-1" text="Back to Menu" display-tooltip-when-elided="true" name="MenuButton" class="MenuButton" />
         </ui:VisualElement>
     </ui:VisualElement>

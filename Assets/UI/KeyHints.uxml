@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheets/KeyHintsStylesheet.uss?fileID=7433441132597879392&amp;guid=c5213364de0276448a87c28826c28680&amp;type=3#KeyHintsStylesheet" />
+    <ui:VisualElement name="KeyHintWrapper">
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/KEYBOARD.png?fileID=-1862889234559275305&amp;guid=e5aed1e7cfa9ec9479ea68a6b8c16d70&amp;type=3#KEYBOARD_11&apos;);" />
+            <ui:Label tabindex="-1" text="Up" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/KEYBOARD.png?fileID=3173158424270449248&amp;guid=e5aed1e7cfa9ec9479ea68a6b8c16d70&amp;type=3#KEYBOARD_21&apos;);" />
+            <ui:Label tabindex="-1" text="Down" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/KEYBOARD.png?fileID=-8048616497609775166&amp;guid=e5aed1e7cfa9ec9479ea68a6b8c16d70&amp;type=3#KEYBOARD_20&apos;);" />
+            <ui:Label tabindex="-1" text="Left" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/KEYBOARD.png?fileID=-4834212936599313584&amp;guid=e5aed1e7cfa9ec9479ea68a6b8c16d70&amp;type=3#KEYBOARD_22&apos;);" />
+            <ui:Label tabindex="-1" text="Right" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/MOUSEBUTTONLEFT.png?fileID=21300000&amp;guid=aeb800e6e34b7dc4b8a132ef59257d72&amp;type=3#MOUSEBUTTONLEFT&apos;);" />
+            <ui:Label tabindex="-1" text="Primary Attack" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/MOUSEBUTTONRIGHT.png?fileID=21300000&amp;guid=4b0ef9ed25b393942a0fdeea887d5be3&amp;type=3#MOUSEBUTTONRIGHT&apos;);" />
+            <ui:Label tabindex="-1" text="Secondary Attack" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+        <ui:VisualElement name="KeyHint">
+            <ui:VisualElement name="ButtonSprite" class="button" style="background-image: url(&apos;project://database/Assets/Sprites/Buttons/KEYBOARD.png?fileID=-9023386835366387233&amp;guid=e5aed1e7cfa9ec9479ea68a6b8c16d70&amp;type=3#KEYBOARD_54&apos;); width: 40px;" />
+            <ui:Label tabindex="-1" text="Utility Skill" display-tooltip-when-elided="true" name="Action" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

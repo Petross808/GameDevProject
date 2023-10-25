@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Item_ExplosiveKills
   m_EditorClassIdentifier: 
   _itemName: Explosive Finale
-  _itemDescription: Enemies explode on death
+  _itemDescription: 'Enemies explode on death
+
+
+    -If already owned-
+
+    Increase
+    Damage'
   _entityModifier: EM_ExplodeOnKill

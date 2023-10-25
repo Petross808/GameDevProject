@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="KeyHints" src="project://database/Assets/UI/KeyHints.uxml?fileID=9197481963319205126&amp;guid=5f7b6743aa5753f45acd0af56145c8c2&amp;type=3#KeyHints" />
     <Style src="project://database/Assets/UI/Stylesheets/InGameHUDStylesheet.uss?fileID=7433441132597879392&amp;guid=869678d3047d0c94e864bdb91de41526&amp;type=3#InGameHUDStylesheet" />
     <ui:VisualElement name="XpBar" />
     <ui:ProgressBar value="60" title="Spaceship Health" name="CrystalHealth" />
@@ -20,4 +21,5 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Instance template="KeyHints" name="KeyHints" style="position: absolute; top: 30%;" />
 </ui:UXML>

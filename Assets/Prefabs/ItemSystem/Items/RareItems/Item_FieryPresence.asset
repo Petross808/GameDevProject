@@ -15,5 +15,11 @@ MonoBehaviour:
   _itemName: Fiery Presence
   _itemDescription: '-New Aura-
 
-    Deal damage to nearby enemies'
+    Deal damage to nearby enemies
+
+
+    -If already
+    owned-
+
+    Increase Damage'
   _entityModifier: EM_FieryPresence

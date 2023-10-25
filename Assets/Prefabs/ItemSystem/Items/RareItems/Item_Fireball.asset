@@ -15,5 +15,13 @@ MonoBehaviour:
   _itemName: Fireball
   _itemDescription: '-New Secondary-
 
-    Small damaging projectile'
+    Small damaging projectile
+
+
+    -If already
+    owned-
+
+    Increase Damage
+
+    Lower Cooldown'
   _entityModifier: EM_Fireball
