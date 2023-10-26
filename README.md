@@ -5,10 +5,9 @@
  itch.io link: https://petross808.itch.io/astral-crisis
 
 
-You are an astronaut travelling through space. Suddenly, you realize you forgot to charge the spaceship's battery.
+You are an astronaut travelling through space. Suddenly, you realize you forgot to charge the spaceship's battery. Your only option is to land on a nearby planet and survive until your spaceship recharges. In about 10 minutes.
 
-Your only option is to land on a nearby planet and survive until your spaceship recharges. In about 10 minutes.
- 
+ Objective: Defend the spaceship from the incoming enemies for 10 minutes.
  
  Controls:
  
