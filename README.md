@@ -1,4 +1,4 @@
-# GameDevProject
+# Astral Crisis - 2D Game Engine Development CA1
  
  presentation video link: https://www.youtube.com/watch?v=I7UcXvWx2bs
  
