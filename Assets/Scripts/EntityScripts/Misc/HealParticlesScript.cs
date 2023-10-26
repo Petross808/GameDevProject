@@ -18,6 +18,7 @@ public class HealParticlesScript : MonoBehaviour
         }
     }
 
+    // When the entity is healed, play particles
     private void PlayParticles(object sender, int e)
     {
         _particleSystem.Play();

@@ -35,6 +35,7 @@ public class EM_FrostBolt : MonoBehaviour, IEntityModifier
         }
     }
 
+    // If enemy gets hit by attack named frostbolt, freeze them
     private void FreezeEnemy(object sender, HitData e)
     {
         if(e.DamageSource.gameObject.name == "FrostBolt(Clone)")
@@ -43,6 +44,7 @@ public class EM_FrostBolt : MonoBehaviour, IEntityModifier
         }    
     }
 
+    // Save movement speed, drop it to 0 and change sprite to cyan, after 4 second bring it back to the original and change sprite to white
     private IEnumerator Freeze(GameObject enemy)
     {
         EntityMovement movement = enemy.GetComponent<EntityMovement>();
@@ -57,6 +59,11 @@ public class EM_FrostBolt : MonoBehaviour, IEntityModifier
             sprite.color = Color.white;
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        EntityHealth.OnAnyEntityHit -= FreezeEnemy;
     }
 
 }

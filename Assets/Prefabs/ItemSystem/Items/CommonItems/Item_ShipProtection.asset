@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_ShipProtection
   m_EditorClassIdentifier: 
   _itemName: Spaceship Armor
-  _itemDescription: 'The Spaceship takes less damage
+  _itemDescription: 'The Spaceship takes reduced damage
 
 '
   _entityModifier: EM_ShipProtection

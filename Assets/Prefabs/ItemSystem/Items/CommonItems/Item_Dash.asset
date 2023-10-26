@@ -15,5 +15,11 @@ MonoBehaviour:
   _itemName: Dash
   _itemDescription: '-New Utility-
 
-    Grants a burst of decaying movement speed'
+    Grants a burst of decaying movement speed
+
+
+    -If
+    already owned-
+
+    Reduce Cooldown'
   _entityModifier: EM_Dash

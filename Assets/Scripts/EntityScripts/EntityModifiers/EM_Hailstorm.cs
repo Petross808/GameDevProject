@@ -61,4 +61,9 @@ public class EM_Hailstorm : MonoBehaviour, IEntityModifier
         }
 
     }
+
+    private void OnDestroy()
+    {
+        EntityHealth.OnAnyEntityHit -= FreezeEnemy;
+    }
 }

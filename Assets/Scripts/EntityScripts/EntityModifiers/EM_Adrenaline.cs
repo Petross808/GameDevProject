@@ -40,15 +40,17 @@ public class EM_Adrenaline : MonoBehaviour, IEntityModifier
         }
     }
 
+    // If player used Utility skill, start adrenaline
     private void Adrenaline(object sender, AttackData e)
     {
         if(e.EntityCombat.CompareTag("Player")
-            && e.Slot == EntityCombat.AttackSlot.UTILITY)
+            && e.Attack == _attackData)
         {
             StartCoroutine(StartAdrenaline());
         }
     }
 
+    // Get half of primary attacks cooldown, subtract it from the cooldwon, wait 4 seconds, add it back
     private IEnumerator StartAdrenaline()
     {
         IAttack primary = _combat.GetAttack(EntityCombat.AttackSlot.PRIMARY);
@@ -57,6 +59,11 @@ public class EM_Adrenaline : MonoBehaviour, IEntityModifier
         yield return new WaitForSeconds(4f);
         primary.Cooldown += halfCooldown;
 
+    }
+
+    private void OnDestroy()
+    {
+        EntityCombat.OnAnyEntityAttack -= Adrenaline;
     }
 
 }

@@ -69,6 +69,7 @@ public class EntityCombat : MonoBehaviour
         }
     }
 
+    // Returns attack at slot
     public IAttack GetAttack(AttackSlot slot)
     {
         return _attacks[(int)slot];

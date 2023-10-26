@@ -40,23 +40,33 @@ public class EM_Dash : MonoBehaviour, IEntityModifier
         }
     }
 
+    // If player uses utility skill, start dash
     private void Dash(object sender, AttackData e)
     {
         if(e.EntityCombat.CompareTag("Player")
-            && e.Slot == EntityCombat.AttackSlot.UTILITY)
+            && e.Attack == _attackData)
         {
             StartCoroutine(StartDash());
         }
     }
 
+    // Add 10 to movement speed, lower it back over the next 1 second
     private IEnumerator StartDash()
     {
-        _movement.Speed += 20;
-        for(int i = 0; i < 20; i++)
+        _movement.Speed += 10;
+        for(int i = 0; i < 10; i++)
         {
-            yield return new WaitForSeconds(0.05f);
-            _movement.Speed -= 1;
+            yield return new WaitForSeconds(0.1f);
+            if(_movement != null)
+            {
+                _movement.Speed -= 1;
+            }
         }
+    }
+
+    void OnDestroy()
+    {
+        EntityCombat.OnAnyEntityAttack -= Dash;
     }
 
 }
